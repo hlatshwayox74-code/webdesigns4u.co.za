@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Web Designs4U | Website Design in Gqeberha (Port Elizabeth), South Africa</title>
+<meta name="description" content="Web Designs4U designs and builds websites that sell: business websites, ecommerce, booking sites and custom digital experiences for businesses in Gqeberha, Port Elizabeth and across South Africa.">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Web Designs4U">
+<meta property="og:title" content="Web Designs4U | Don't just get a website. Get a digital experience.">
+<meta property="og:description" content="Website design and development in Gqeberha, South Africa. Experience what your business could become online.">
+<meta property="og:image" content="media/hero.jpg">
+<meta property="og:locale" content="en_ZA">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+<link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/main.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Web Designs4U",
+  "description": "Website design and development for businesses: business websites, ecommerce, booking websites, landing pages and custom digital experiences.",
+  "areaServed": [
+    {"@type": "City", "name": "Gqeberha"},
+    {"@type": "City", "name": "Port Elizabeth"},
+    {"@type": "Country", "name": "South Africa"}
+  ],
+  "email": "webdesigns4u.co.za@gmail.com",
+  "telephone": "+27714379593",
+  "contactPoint": {"@type": "ContactPoint", "telephone": "+27714379593", "email": "webdesigns4u.co.za@gmail.com", "contactType": "sales", "availableLanguage": ["English"]},
+  "address": {"@type": "PostalAddress", "addressLocality": "Gqeberha", "addressRegion": "Eastern Cape", "addressCountry": "ZA"},
+  "knowsAbout": ["Web design", "Web development", "Ecommerce website design", "Business website design", "Booking websites", "SEO", "Website automation"]
+}
+</script>
+</head>
+<body class="is-locked">
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Netlify Forms detection (hidden). Field names match the lead payload. -->
+<form name="build-my-website" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="bot-field"><input name="kind"><input name="intent"><input name="name"><input name="businessName"><input name="businessType"><input name="businessDescription"><input name="goals"><input name="websiteType"><input name="style"><input name="email"><input name="phone"><input name="existingWebsite"><textarea name="message"></textarea><input name="personalised_category"><input name="personalised_goals"><input name="personalised_style"><input name="source_utm_source"><input name="source_utm_medium"><input name="source_utm_campaign"><input name="source_utm_term"><input name="source_utm_content"><input name="source_gclid"><input name="source_fbclid"><input name="source_referrer"><input name="source_landing_page"><input name="source_first_seen"><input name="page"><input name="timestamp"><input name="timezone">
+</form>
+<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="bot-field"><input name="kind"><input name="fullName"><input name="reply"><input name="businessName"><textarea name="message"></textarea><input name="source_utm_source"><input name="source_utm_medium"><input name="source_utm_campaign"><input name="source_referrer"><input name="source_landing_page"><input name="page"><input name="timestamp"><input name="timezone">
+</form>
+
+<!-- Ambient layer: blurred poster of the current chapter -->
+<div class="ambient" aria-hidden="true">
+  <div class="ambient__img" data-slot="a"></div>
+  <div class="ambient__img" data-slot="b"></div>
+  <div class="ambient__veil"></div>
+</div>
+
+<!-- ============ OPENING ============ -->
+<div class="intro" id="intro" aria-label="Opening">
+  <div class="intro__portal">
+    <video class="vid" data-media="hero" muted loop playsinline preload="auto" aria-hidden="true"></video>
+  </div>
+  <p class="intro__count" aria-hidden="true"><span id="count">0</span>%</p>
+  <div class="intro__lines" aria-live="polite">
+    <p class="intro__set mega" data-set="0"><span class="l">What if</span><span class="l">your website</span><span class="l">was your</span><span class="l">best salesperson?</span></p>
+    <p class="intro__set mega" data-set="1"><span class="l">What if</span><span class="l">it never</span><span class="l">stopped selling?</span></p>
+    <p class="intro__set mega" data-set="2"><span class="l">Experience it.</span></p>
+  </div>
+  <div class="intro__gate">
+    <button class="hold" id="initiate" type="button" aria-describedby="hold-hint">
+      <svg class="hold__ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56"/><circle class="hold__fill" cx="60" cy="60" r="56"/></svg>
+      <span class="hold__label">Initiate experience</span>
+    </button>
+    <p class="intro__hint" id="hold-hint">Press and hold. Or press Enter.</p>
+    <button class="sound-switch" type="button" data-sound-toggle aria-pressed="false">
+      <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="sound-switch__text">Best with sound. Turn it on</span>
+    </button>
+  </div>
+  <button class="intro__skip" type="button" id="skip-intro">Skip intro</button>
+</div>
+
+<!-- ============ HUD ============ -->
+<header class="hud" role="banner">
+  <a class="hud__logo" href="#main" aria-label="Web Designs4U, back to start">
+    <span class="mark" aria-hidden="true"><i></i></span><span>Web Designs4U</span>
+  </a>
+  <p class="hud__chapter" aria-live="polite"><span class="hud__num">00</span><span class="hud__sep" aria-hidden="true">/12</span><span class="hud__title">Start</span></p>
+  <nav class="hud__actions" aria-label="Quick actions">
+    <button class="hud__btn" type="button" data-sound-toggle aria-pressed="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="hud__sound-text">Sound off</span></button>
+    <button class="hud__btn hud__contact" type="button" data-open="contact" aria-haspopup="dialog">Contact</button>
+    <button class="hud__btn" type="button" data-open="menu" aria-haspopup="dialog">Menu</button>
+    <button class="btn btn--accent hud__cta" type="button" data-open="intake" data-cta-primary>Build my website</button>
+  </nav>
+</header>
+<div class="rail" aria-hidden="true"><span></span></div>
+
+<main id="main" tabindex="-1">
+  <h1 class="sr-only">Web Designs4U: website design and development for businesses in Gqeberha, Port Elizabeth and across South Africa</h1>
+
+  <!-- CH 01 -->
+  <section class="ch ch--pin" id="ch-internet" data-num="01" data-title="The internet doesn't wait" data-media="internet" data-heat="0" style="--len:340">
+    <div class="ch__stage">
+      <div class="ch__copy">
+        <p class="ch__num">Chapter 01</p>
+        <div class="swap">
+          <h2 class="swap__item mega" data-range="0,0.42"><span class="l">The internet</span><span class="l">doesn't wait.</span></h2>
+          <p class="swap__item mega" data-range="0.42,0.7"><span class="l">Your customer</span><span class="l">is already</span><span class="l">online.</span></p>
+          <p class="swap__item mega" data-range="0.7,1.01"><span class="l">The question is:</span><span class="l">what do</span><span class="l">they see?</span></p>
+        </div>
+      </div>
+      <div class="noise" aria-hidden="true"></div>
+      <figure class="portal"><video class="vid" data-media="internet" muted loop playsinline preload="none" aria-hidden="true"></video><figcaption class="portal__bar"><span data-clock>00:00</span><span>Search, social, mobile</span></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- CH 02 -->
+  <section class="ch ch--pin ch--wide" id="ch-impression" data-num="02" data-title="First impression" data-media="design" data-heat="0.08" style="--len:420">
+    <div class="ch__stage">
+      <div class="ch__copy">
+        <p class="ch__num">Chapter 02</p>
+        <div class="swap">
+          <h2 class="swap__item mega" data-range="0,0.55"><span class="l">Before they</span><span class="l">meet you…</span></h2>
+          <p class="swap__item mega" data-range="0.55,1.01"><span class="l">They meet</span><span class="l">your website.</span></p>
+        </div>
+      </div>
+      <div class="browser" aria-label="A website assembling itself: navigation, hero, typography, image, content, call to action" role="img">
+        <div class="browser__chrome"><i></i><i></i><i></i><span class="browser__url"><span data-bind-slug>yourbusiness</span>.co.za</span></div>
+        <div class="browser__view">
+          <div class="bp bp--nav" data-range="0.06,1.01"><b data-bind-name>Your business</b><span>Services</span><span>About</span><span>Contact</span><em>Book now</em></div>
+          <div class="bp bp--hero" data-range="0.18,1.01"><div class="bp--image" data-range="0.42,1.01" data-poster-of="final"></div>
+            <p class="bp--type" data-range="0.3,1.01">Exactly what you need, done properly.</p>
+            <p class="bp--content" data-range="0.54,1.01">A business people recommend by name. See what we do, what it costs, and book in under a minute.</p>
+            <span class="bp--cta" data-range="0.66,1.01">Get started</span>
+          </div>
+          <span class="pin" style="--x:4%;--y:8%" data-range="0.06,0.2">Navigation</span>
+          <span class="pin" style="--x:6%;--y:24%" data-range="0.18,0.32">Hero</span>
+          <span class="pin" style="--x:6%;--y:44%" data-range="0.3,0.44">Typography</span>
+          <span class="pin" style="--x:58%;--y:20%" data-range="0.42,0.56">Image</span>
+          <span class="pin" style="--x:6%;--y:66%" data-range="0.54,0.68">Content</span>
+          <span class="pin" style="--x:6%;--y:84%" data-range="0.66,0.84">Call to action</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CH 03 -->
+  <section class="ch ch--pin ch--wide" id="ch-page" data-num="03" data-title="A website is not a page" data-media="design" data-heat="0.16" style="--len:520">
+    <div class="ch__stage">
+      <div class="ch__copy">
+        <p class="ch__num">Chapter 03</p>
+        <h2 class="mega mega--md"><span class="l">A website</span><span class="l">is not a page.</span></h2>
+        <ol class="modes" role="list">
+          <li><button type="button" data-mode="0"><b>Design</b><span>How it looks.</span></button></li>
+          <li><button type="button" data-mode="1"><b>Experience</b><span>How it feels.</span></button></li>
+          <li><button type="button" data-mode="2"><b>Story</b><span>What it communicates.</span></button></li>
+          <li><button type="button" data-mode="3"><b>Function</b><span>What it lets people do.</span></button></li>
+          <li><button type="button" data-mode="4"><b>Conversion</b><span>What it gets people to do next.</span></button></li>
+        </ol>
+      </div>
+      <div class="demo" data-level="-1" role="img" aria-label="A sample website gaining design, experience, story, function and conversion layers">
+        <div class="demo__nav"><b data-bind-name>Your business</b><span>Services</span><span>About</span><em>Book now</em></div>
+        <div class="demo__hero">
+          <p class="demo__h">Exactly what you need, done properly.</p>
+          <p class="demo__story"><span>The problem</span><span>Our promise</span><span>The proof</span></p>
+          <span class="demo__cta">Get started</span>
+        </div>
+        <div class="demo__cards"><div><b>Service one</b><span>From R450</span></div><div><b>Service two</b><span>From R900</span></div><div><b>Service three</b><span>Quote</span></div></div>
+        <div class="demo__booking"><b>Pick a time</b><div><span>Tue 10:00</span><span class="is-sel">Wed 14:30</span><span>Fri 09:00</span></div><em>Confirm booking</em></div>
+        <div class="demo__toast">New enquiry received</div>
+        <span class="demo__ghost" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CH 04 -->
+  <section class="ch ch--flow" id="ch-transform" data-num="04" data-title="The transformation" data-media="build" data-heat="0.26">
+    <div class="ch__inner">
+      <div class="ch__copy">
+        <p class="ch__num">Chapter 04</p>
+        <div class="swap swap--static">
+          <h2 class="swap__item mega mega--md on" data-tf="before"><span class="l">A business</span><span class="l">without a digital</span><span class="l">experience.</span></h2>
+          <p class="swap__item mega mega--md" data-tf="after"><span class="l">Now it's a</span><span class="l">digital</span><span class="l">experience.</span></p>
+        </div>
+        <p class="lede">This is our portfolio. Drag the line, or let us do it.</p>
+        <div class="tf__controls">
+          <button class="btn btn--accent" type="button" id="tf-run">Transform it</button>
+          <div class="seg" role="group" aria-label="Preview size">
+            <button type="button" aria-pressed="true" data-device="desktop">Desktop</button>
+            <button type="button" aria-pressed="false" data-device="mobile">Mobile</button>
+          </div>
+        </div>
+      </div>
+      <div class="compare" data-device="desktop" style="--pos:0">
+        <div class="compare__frame">
+          <div class="site-before" aria-label="Before: a cluttered generic website">
+            <div class="sb__top"><span>Home</span><span>About Us</span><span>Services</span><span>Gallery</span><span>Specials</span><span>News</span><span>Links</span><span>FAQ</span><span>Contact Us</span></div>
+            <div class="sb__marquee"><span>*** SPECIAL OFFER *** CALL NOW *** BEST PRICES IN TOWN *** SPECIAL OFFER ***</span></div>
+            <p class="sb__welcome">WELCOME TO OUR WEBSITE!!!</p>
+            <p class="sb__name"><span data-bind-name>Your business</span> - Home Page</p>
+            <div class="sb__cols"><p>We are a company that provides services. We have many years of experience and we offer quality and professional services at affordable prices. Please browse our website for more information about what we do. Click on the links on the left to see more pages. Thank you for visiting.</p><div class="sb__img">image coming soon</div></div>
+            <p class="sb__counter">You are visitor no. 000231</p>
+            <div class="sb__pop"><b>Subscribe to our newsletter!!!</b><span>Enter email</span><em>X</em></div>
+            <div class="sb__construction">Page under construction</div>
+          </div>
+          <div class="site-after" aria-label="After: a clear, cinematic website">
+            <div class="sa__nav"><b data-bind-name>Your business</b><span>Services</span><span>About</span><em>Get started</em></div>
+            <div class="sa__hero"><div class="sa__img" data-poster-of="final"></div>
+              <div class="sa__copy"><p class="sa__h">Exactly what you need, done properly.</p><p class="sa__p">Clear services, honest pricing, booked in under a minute.</p><span class="sa__cta">Get started</span></div>
+            </div>
+            <div class="sa__row"><div><b>Services</b><span>What we do, clearly</span></div><div><b>Proof</b><span>Real reviews</span></div><div><b>Contact</b><span>WhatsApp, call, email</span></div></div>
+          </div>
+          <span class="compare__line" aria-hidden="true"><i></i></span>
+          <label class="sr-only" for="tf-range">Reveal the redesigned website</label>
+          <input class="compare__range" id="tf-range" type="range" min="0" max="100" value="0">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CH 05 -->
+  <section class="ch ch--pin" id="ch-story" data-num="05" data-title="Every business has a story" data-media="story" data-heat="0.38" style="--len:300">
+    <div class="ch__stage">
+      <div class="tpl" aria-hidden="true"></div>
+      <div class="ch__copy">
+        <p class="ch__num">Chapter 05</p>
+        <div class="swap">
+          <h2 class="swap__item mega" data-range="0,0.5"><span class="l">Your business</span><span class="l">is not a</span><span class="l">template.</span></h2>
+          <p class="swap__item mega" data-range="0.5,1.01"><span class="l">So why should</span><span class="l">your website</span><span class="l">be one?</span></p>
+        </div>
+      </div>
+      <figure class="portal"><video class="vid" data-media="story" muted loop playsinline preload="none" aria-hidden="true"></video><figcaption class="portal__bar"><span data-clock>00:00</span><span>Your story</span></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- CH 06 -->
+  <section class="ch ch--flow" id="ch-you" data-num="06" data-title="Tell us who you are" data-media="identity" data-heat="0.5">
+    <div class="ch__inner you">
+      <div class="you__main">
+        <p class="ch__num">Chapter 06</p>
+        <h2 class="mega you__title"><span class="l you__name" data-bind-name data-fit data-fallback="Your business">Your business</span><span class="l">deserves more.</span></h2>
+        <form class="you__form" id="you-form" novalidate>
+          <div class="field">
+            <label for="you-name" class="q">What's your business called?</label>
+            <input id="you-name" name="name" type="text" autocomplete="organization" placeholder="Business name" maxlength="60">
+          </div>
+          <fieldset class="field">
+            <legend class="q">What do you do?</legend>
+            <div class="chips" data-chips="type" data-kind="radio"></div>
+          </fieldset>
+          <fieldset class="field">
+            <legend class="q">What do you want your website to do? <small>Pick any</small></legend>
+            <div class="chips" data-chips="goals" data-kind="checkbox"></div>
+          </fieldset>
+          <fieldset class="field">
+            <legend class="q">What should it feel like?</legend>
+            <div class="chips" data-chips="style" data-kind="radio"></div>
+          </fieldset>
+          <button class="btn btn--accent btn--lg" type="submit">Show me my website</button>
+        </form>
+      </div>
+      <figure class="portal portal--side"><video class="vid" data-media="identity" muted loop playsinline preload="none" aria-hidden="true"></video><figcaption class="portal__bar"><span data-clock>00:00</span><span>Your identity</span></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- CH 07 -->
+  <section class="ch ch--flow" id="ch-preview" data-num="07" data-title="Your website, in motion" data-media="identity" data-heat="0.6">
+    <div class="ch__inner">
+      <div class="preview__head">
+        <p class="ch__num">Chapter 07</p>
+        <h2 class="mega mega--md">
+          <span class="when-unnamed"><span class="l">Your website,</span><span class="l">in motion.</span></span>
+          <span class="when-named"><span class="l">Let's build</span><span class="l" data-bind-name data-fit>Your business</span></span>
+        </h2>
+        <p class="lede">Let's imagine what your digital presence could become.</p>
+        <dl class="tags">
+          <div><dt>Business</dt><dd data-tag="name">Your business</dd></div>
+          <div><dt>Category</dt><dd data-tag="category">Other</dd></div>
+          <div><dt>Feel</dt><dd data-tag="style">Premium</dd></div>
+          <div><dt>Goal</dt><dd data-tag="goal">Get more customers</dd></div>
+        </dl>
+        <p class="hint-empty when-unnamed">Add your business name in chapter 06 and this becomes yours.</p>
+      </div>
+      <div class="concept" id="concept" aria-live="polite">
+        <div class="concept__browser">
+          <div class="browser__chrome"><i></i><i></i><i></i><span class="browser__url"><span data-bind-slug>yourbusiness</span>.co.za</span></div>
+          <div class="cx" data-surface="desktop"></div>
+        </div>
+        <div class="concept__phone"><div class="cx" data-surface="phone"></div></div>
+        <ol class="concept__log" aria-label="Build log"></ol>
+      </div>
+      <div class="preview__actions">
+        <p class="become"><span class="when-unnamed">This is what your business could become.</span><span class="when-named">This is what <b data-bind-name>your business</b> could become.</span></p>
+        <div class="preview__tools">
+          <button class="btn" type="button" id="cx-rebuild">Rebuild</button>
+          <button class="btn" type="button" id="cx-style">Try another feel</button>
+        </div>
+        <div class="preview__go">
+          <button class="btn btn--accent" type="button" data-open="intake" data-cta-primary>Build my website</button>
+          <a class="btn btn--wa" data-wa="journey" href="https://wa.me/27714379593" target="_blank" rel="noopener"><svg class="wa-ico" aria-hidden="true"><use href="#ico-wa"/></svg>WhatsApp us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CH 08 -->
+  <section class="ch ch--pin" id="ch-journey" data-num="08" data-title="The customer journey" data-media="journey" data-heat="0.66" style="--len:380">
+    <div class="ch__stage">
+      <div class="ch__copy">
+        <p class="ch__num">Chapter 08</p>
+        <div class="swap">
+          <h2 class="swap__item mega mega--md" data-range="0,0.45"><span class="l">Great design</span><span class="l">isn't decoration.</span></h2>
+          <p class="swap__item mega mega--md" data-range="0.45,0.82"><span class="l">It's</span><span class="l">architecture.</span></p>
+          <p class="swap__item mega mega--md" data-range="0.82,1.01"><span class="l">That's what</span><span class="l">we build.</span></p>
+        </div>
+        <ol class="journey" role="list">
+          <li data-range="0.06,1.01"><b>Discover</b><span>They find you.</span></li>
+          <li data-range="0.2,1.01"><b>Understand</b><span>They get what you do in seconds.</span></li>
+          <li data-range="0.34,1.01"><b>Trust</b><span>They believe you.</span></li>
+          <li data-range="0.48,1.01"><b>Desire</b><span>They want it.</span></li>
+          <li data-range="0.62,1.01"><b>Act</b><span>They book, buy or call.</span></li>
+        </ol>
+      </div>
+      <figure class="portal"><video class="vid" data-media="journey" muted loop playsinline preload="none" aria-hidden="true"></video><figcaption class="portal__bar"><span data-clock>00:00</span><span>Decision</span></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- CH 09 -->
+  <section class="ch ch--pin" id="ch-process" data-num="09" data-title="We build the system" data-media="strategy" data-heat="0.72" style="--len:560">
+    <div class="ch__stage">
+      <div class="ch__copy">
+        <p class="ch__num">Chapter 09</p>
+        <h2 class="mega mega--md"><span class="l">We build</span><span class="l">the system.</span></h2>
+        <div class="process">
+          <ol class="process__track" role="list">
+            <li><span class="n">01</span><b>Discover</b><span>Understand the business.</span></li>
+            <li><span class="n">02</span><b>Strategise</b><span>Decide what the website needs to achieve.</span></li>
+            <li><span class="n">03</span><b>Design</b><span>Create the visual experience.</span></li>
+            <li><span class="n">04</span><b>Build</b><span>Develop the website.</span></li>
+            <li><span class="n">05</span><b>Connect</b><span>Integrate your tools and systems.</span></li>
+            <li><span class="n">06</span><b>Optimise</b><span>Performance, mobile, UX and conversion.</span></li>
+            <li><span class="n">07</span><b>Launch</b><span>Put the business online.</span></li>
+          </ol>
+        </div>
+      </div>
+      <figure class="portal portal--stack">
+        <video class="vid" data-media="strategy" data-stage="0" muted loop playsinline preload="none" aria-hidden="true"></video>
+        <video class="vid" data-media="design" data-stage="1" muted loop playsinline preload="none" aria-hidden="true"></video>
+        <video class="vid" data-media="build" data-stage="2" muted loop playsinline preload="none" aria-hidden="true"></video>
+        <figcaption class="portal__bar"><span data-clock>00:00</span><span class="process__now">Discover</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CH 10 -->
+  <section class="ch ch--flow" id="ch-integrations" data-num="10" data-title="Websites should work" data-media="network" data-heat="0.78">
+    <div class="ch__inner integ">
+      <div class="integ__copy">
+        <p class="ch__num">Chapter 10</p>
+        <h2 class="mega mega--md"><span class="l">Websites</span><span class="l">should work.</span></h2>
+        <p class="lede">Pretty is the minimum. Every site we build is wired into the tools that bring in money.</p>
+        <p class="integ__readout" aria-live="polite"><b>Pick a connection.</b><span>See what it does for your business.</span></p>
+      </div>
+      <div class="hub">
+        <div class="hub__core"><video class="vid" data-media="network" muted loop playsinline preload="none" aria-hidden="true"></video><span data-bind-name>Your business</span></div>
+        <svg class="hub__lines" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"></svg>
+        <ul class="hub__nodes" role="list"></ul>
+      </div>
+      <p class="mega mega--md integ__close"><span class="l">Your website should work</span><span class="l">while you work.</span></p>
+    </div>
+  </section>
+
+  <!-- CH 11 -->
+  <section class="ch ch--pin" id="ch-sales" data-num="11" data-title="The website becomes the salesperson" data-media="salesperson" data-heat="0.86" style="--len:560">
+    <div class="ch__stage">
+      <div class="ch__copy">
+        <p class="ch__num">Chapter 11</p>
+        <div class="swap">
+          <h2 class="swap__item mega mega--md" data-range="0,0.76"><span class="l">Meet your</span><span class="l">best salesperson.</span></h2>
+          <p class="swap__item mega" data-range="0.76,0.9"><span class="l">Your website</span><span class="l">never goes home.</span></p>
+          <p class="swap__item mega" data-range="0.9,1.01"><span class="l">It works</span><span class="l">24 / 7.</span></p>
+        </div>
+        <ol class="feed" role="list">
+          <li data-range="0.05,0.76"><time>02:14</time><b>Greets</b><span>Welcome to <span data-bind-name>your business</span>.</span></li>
+          <li data-range="0.15,0.76"><time>02:14</time><b>Explains</b><span>What you do, in one screen.</span></li>
+          <li data-range="0.25,0.76"><time>02:15</time><b>Builds trust</b><span>Reviews and real photos, right where doubt starts.</span></li>
+          <li data-range="0.35,0.76"><time>02:16</time><b>Answers questions</b><span>Prices, hours and FAQs, before anyone asks.</span></li>
+          <li data-range="0.45,0.76"><time>02:17</time><b>Shows services</b><span>Laid out, priced and easy to compare.</span></li>
+          <li data-range="0.55,0.76"><time>02:18</time><b>Captures details</b><span>Name, number and preferred time saved.</span></li>
+          <li data-range="0.65,0.76"><time>02:18</time><b>Generates action</b><span>Booking confirmed. You find out over breakfast.</span></li>
+        </ol>
+        <p class="clock-line" data-range="0.9,1.01">Right now it's <b data-clock>00:00</b> in <span data-tz-label>Gqeberha</span>. Your website is open.</p>
+      </div>
+      <figure class="portal portal--stack">
+        <video class="vid" data-media="salesperson" data-stage="0" muted loop playsinline preload="none" aria-hidden="true"></video>
+        <video class="vid" data-media="growth" data-stage="1" muted loop playsinline preload="none" aria-hidden="true"></video>
+        <figcaption class="portal__bar"><span data-clock>00:00</span><span>Always on</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CH 12 -->
+  <section class="ch ch--flow ch--cta" id="ch-yours" data-num="12" data-title="Now make it yours" data-media="final" data-heat="1">
+    <div class="ch__inner yours">
+      <div>
+        <p class="ch__num">Chapter 12</p>
+        <h2 class="mega">
+          <span class="when-named"><span class="l" data-bind-name data-fit>Your business</span></span>
+          <span class="when-named yours__experienced"><span class="l">You just experienced</span><span class="l">what your business</span><span class="l">could become.</span></span>
+          <span class="when-unnamed"><span class="l">Let's build</span><span class="l">your digital</span><span class="l">experience.</span></span>
+        </h2>
+        <p class="yours__ready when-named">Ready to build it?</p>
+        <p class="lede" data-cta-supporting>Your business has a story. Let's build the place where it lives.</p>
+        <div class="yours__actions">
+          <button class="btn btn--accent btn--lg" type="button" data-open="intake" data-cta-primary>Build my website</button>
+          <a class="btn btn--lg btn--wa" data-wa="journey" href="https://wa.me/27714379593" target="_blank" rel="noopener"><svg class="wa-ico" aria-hidden="true"><use href="#ico-wa"/></svg>WhatsApp Web Designs4U</a>
+        </div>
+      </div>
+      <figure class="portal portal--side"><video class="vid" data-media="final" muted loop playsinline preload="none" aria-hidden="true"></video><figcaption class="portal__bar"><span data-clock>00:00</span><span>Your move</span></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final" id="final" data-num="12" data-title="Build my website" data-media="final" data-heat="1" aria-labelledby="final-title">
+    <p class="final__brand">Web Designs4U</p>
+    <h2 class="mega final__a" id="final-title"><span class="l">Your business</span><span class="l">has a story.</span></h2>
+    <p class="mega final__b"><span class="l">Let's build</span><span class="l">the place</span><span class="l">where it lives.</span></p>
+    <div class="final__actions">
+      <button class="btn btn--accent btn--xl" type="button" data-open="intake" data-cta-primary>Build my website</button>
+      <a class="btn btn--xl btn--wa" data-wa="journey" href="https://wa.me/27714379593" target="_blank" rel="noopener"><svg class="wa-ico" aria-hidden="true"><use href="#ico-wa"/></svg>WhatsApp us</a>
+    </div>
+    <ul class="final__contact contact-list" role="list">
+      <li><a href="https://wa.me/27714379593" target="_blank" rel="noopener" data-wa="journey"><small>WhatsApp</small><strong>071 437 9593</strong></a></li>
+      <li><a href="tel:+27714379593"><small>Call</small><strong>071 437 9593</strong></a></li>
+      <li><a href="mailto:webdesigns4u.co.za@gmail.com"><small>Email</small><strong>webdesigns4u.co.za@gmail.com</strong></a></li>
+    </ul>
+    <p class="final__sign"><span>Don't just get a website.</span><span>Get a digital experience.</span></p>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>Web Designs4U designs and builds business websites, ecommerce stores, booking websites, landing pages and custom digital experiences for businesses in Gqeberha, Port Elizabeth and across South Africa.</p>
+  <nav aria-label="Footer">
+    <a href="#ch-internet">Experience</a><a href="#ch-process">Process</a><a href="#ch-integrations">What we build</a><button type="button" data-open="intake">Build your website</button><button type="button" data-open="contact">Contact</button>
+  </nav>
+  <p class="foot__contact"><a href="mailto:webdesigns4u.co.za@gmail.com">webdesigns4u.co.za@gmail.com</a><a href="tel:+27714379593">071 437 9593</a><a href="https://wa.me/27714379593" target="_blank" rel="noopener" data-wa="journey">WhatsApp 071 437 9593</a></p>
+  <p class="foot__small">© <span id="year">2026</span> Web Designs4U. Website design, Gqeberha.</p>
+</footer>
+
+<!-- Mobile dock -->
+<div class="dock">
+  <button class="btn btn--accent" type="button" data-open="intake" data-cta-primary>Build my website</button>
+  <a class="dock__wa" data-wa="journey" href="https://wa.me/27714379593" target="_blank" rel="noopener" aria-label="WhatsApp us on 071 437 9593"><svg class="wa-ico" aria-hidden="true"><use href="#ico-wa"/></svg><span><small>WhatsApp us</small>071 437 9593</span></a>
+</div>
+
+<!-- ============ MENU ============ -->
+<div class="layer menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <button class="layer__close" type="button" data-close>Close</button>
+  <nav class="menu__main" aria-label="Main">
+    <a href="#ch-internet" data-close>Experience</a>
+    <a href="#ch-process" data-close>Process</a>
+    <a href="#ch-integrations" data-close>What we build</a>
+    <button type="button" data-open="intake">Build your website</button>
+    <button type="button" data-open="contact">Contact</button>
+  </nav>
+  <ol class="menu__index" aria-label="Chapters"></ol>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<div class="layer contact" id="contact" role="dialog" aria-modal="true" aria-labelledby="contact-title" hidden>
+  <button class="layer__close" type="button" data-close>Close</button>
+  <div class="contact__grid">
+    <div>
+      <h2 class="mega mega--md" id="contact-title"><span class="l">Talk to</span><span class="l">a human.</span></h2>
+      <ul class="contact-list" role="list"></ul>
+      <p class="contact__empty" hidden>Contact details are added in assets/js/config.js.</p>
+      <div class="contact__ctas">
+        <button class="btn btn--accent" type="button" data-open="intake" data-cta-primary>Build my website</button>
+        <a class="btn btn--wa" data-wa="journey" href="https://wa.me/27714379593" target="_blank" rel="noopener"><svg class="wa-ico" aria-hidden="true"><use href="#ico-wa"/></svg>WhatsApp us</a>
+      </div>
+    </div>
+    <form class="quick" id="quick-form" novalidate>
+      <p class="q">Or leave a message</p>
+      <label>Your name<input name="fullName" autocomplete="name" required></label>
+      <label>Email or phone<input name="reply" autocomplete="email" required></label>
+      <label>Business name <small>optional</small><input name="businessName" autocomplete="organization"></label>
+      <label>Message<textarea name="message" rows="4" required></textarea></label>
+      <p class="form-msg" role="status"></p>
+      <button class="btn btn--accent" type="submit">Send message</button>
+    </form>
+  </div>
+</div>
+
+<!-- ============ BUILD MY WEBSITE (intake) ============ -->
+<div class="intake" id="intake" role="dialog" aria-modal="true" aria-labelledby="intake-heading" hidden>
+  <div class="intake__bg" aria-hidden="true"><video class="vid" data-media="intake" muted loop playsinline preload="none"></video></div>
+  <div class="intake__top">
+    <span class="intake__brand">Web Designs4U</span>
+    <span class="intake__for">Building <b data-bind-name data-fallback="your website">your website</b></span>
+    <span class="intake__step" aria-live="polite">Step <b>1</b> of 8</span>
+    <button class="layer__close" type="button" data-close>Close</button>
+  </div>
+  <div class="intake__bar" aria-hidden="true"><span></span></div>
+  <h2 class="sr-only" id="intake-heading">Build my website</h2>
+  <form class="intake__form" id="intake-form" novalidate>
+    <section class="step" data-step="1">
+      <label class="mega mega--md step__q" for="in-name"><span class="l">What should</span><span class="l">we call you?</span></label>
+      <input class="big-input" id="in-name" name="name" autocomplete="name" placeholder="Your name" required>
+    </section>
+    <section class="step" data-step="2">
+      <label class="mega mega--md step__q" for="in-biz"><span class="l">What's your</span><span class="l">business called?</span></label>
+      <input class="big-input" id="in-biz" name="businessName" autocomplete="organization" placeholder="Business name" required>
+    </section>
+    <fieldset class="step" data-step="3">
+      <legend class="mega mega--md step__q"><span class="l">What does your</span><span class="l">business do?</span></legend>
+      <div class="chips chips--lg" data-ichips="businessType" data-kind="radio" role="radiogroup" aria-label="Business type"></div>
+      <label class="line-field" for="in-desc">In one line, what do you offer? <span class="req">Required</span>
+        <input id="in-desc" name="businessDescription" placeholder="e.g. Driving lessons and licence test prep in Summerstrand" required maxlength="200">
+      </label>
+    </fieldset>
+    <fieldset class="step" data-step="4">
+      <legend class="mega mega--md step__q"><span class="l">What do you want</span><span class="l">your website to achieve?</span></legend>
+      <div class="chips chips--lg" data-ichips="goals" data-kind="checkbox"></div>
+    </fieldset>
+    <fieldset class="step" data-step="5">
+      <legend class="mega mega--md step__q"><span class="l">What are you</span><span class="l">looking for?</span></legend>
+      <div class="chips chips--lg" data-ichips="websiteType" data-kind="radio"></div>
+      <p class="step__opt">Optional. Skip if you're not sure.</p>
+    </fieldset>
+    <fieldset class="step" data-step="6">
+      <legend class="mega mega--md step__q"><span class="l">What should</span><span class="l">it feel like?</span></legend>
+      <div class="chips chips--lg" data-ichips="style" data-kind="radio"></div>
+      <p class="step__opt">Optional. We'll recommend a direction if you skip this.</p>
+    </fieldset>
+    <fieldset class="step" data-step="7">
+      <legend class="mega mega--md step__q"><span class="l">Where can</span><span class="l">we reach you?</span></legend>
+      <div class="journey-card" aria-label="Your answers so far"></div>
+      <div class="grid-inputs">
+        <label>Email <span class="req">Required</span><input name="email" type="email" autocomplete="email" inputmode="email" required></label>
+        <label>Phone / WhatsApp number <span class="req">Required</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="071 234 5678" required></label>
+        <label class="wide">Existing website <small>Optional</small><input name="existingWebsite" type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.co.za"></label>
+      </div>
+    </fieldset>
+    <section class="step" data-step="8">
+      <label class="mega mega--md step__q" for="in-msg"><span class="l">Tell us</span><span class="l">anything else.</span></label>
+      <textarea class="big-input" id="in-msg" name="message" rows="4" placeholder="Optional. Deadlines, websites you like, budget, anything."></textarea>
+    </section>
+    <input type="text" name="bot-field" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="form-msg intake__msg" role="alert"></p>
+  </form>
+  <div class="intake__nav">
+    <button class="btn" type="button" id="in-back">Back</button>
+    <p class="intake__keys" aria-hidden="true">Press Enter to continue</p>
+    <button class="btn btn--accent" type="button" id="in-next">Continue</button>
+  </div>
+
+  <!-- Sending -->
+  <div class="sending" hidden role="status" aria-live="assertive">
+    <p class="mega mega--md sending__a"><span class="l">Building your</span><span class="l">connection…</span></p>
+    <p class="mega mega--md sending__b"><span class="l">Message sent.</span></p>
+    <span class="sending__line" aria-hidden="true"></span>
+  </div>
+
+  <!-- Result: success or error -->
+  <div class="done" hidden data-state="success">
+    <div class="done__bg" aria-hidden="true"><video class="vid" data-media="alive" muted loop playsinline preload="none"></video></div>
+    <div class="done__success">
+      <p class="done__name mega" data-bind-name>Your business</p>
+      <p class="mega mega--md done__line"><span class="l">Your next chapter</span><span class="l">starts here.</span></p>
+      <p class="done__received">Your enquiry has been received. We'll be in touch shortly.</p>
+      <p class="done__preview" hidden>Preview mode: this enquiry was not sent anywhere.</p>
+    </div>
+    <div class="done__error">
+      <p class="mega mega--md done__line"><span class="l">Something interrupted</span><span class="l">the connection.</span></p>
+      <p class="done__received">Your enquiry wasn't sent. Your answers are still here. Send them on WhatsApp in one tap.</p>
+    </div>
+    <div class="done__options">
+      <a class="opt opt--wa" data-wa="lead" href="https://wa.me/27714379593" target="_blank" rel="noopener">
+        <svg class="wa-ico" aria-hidden="true"><use href="#ico-wa"/></svg>
+        <span><b class="opt__ok">WhatsApp us now →</b><b class="opt__err">WhatsApp us instead →</b><small>071 437 9593, your enquiry is already typed</small></span>
+      </a>
+      <a class="opt" data-mail="lead" href="mailto:webdesigns4u.co.za@gmail.com">
+        <span><b>Email us</b><small>webdesigns4u.co.za@gmail.com</small></span>
+      </a>
+      <a class="opt opt--call" href="tel:+27714379593"><span><b>Call</b><small>071 437 9593</small></span></a>
+    </div>
+    <div class="done__foot">
+      <button class="btn done__retry" type="button">Try sending again</button>
+      <button class="btn" type="button" data-close>Back to the experience</button>
+    </div>
+    <div class="done__sign"><b>Web Designs4U</b><span>Don't just get a website.</span><span>Get a digital experience.</span></div>
+  </div>
+</div>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ico-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3Z"/></symbol>
+</svg>
+
+<div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/concept-engine.js"></script>
+<script src="assets/js/leads.js"></script>
+<script src="assets/js/audio.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
