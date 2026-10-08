@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://webdesigns4u.netlify.app/sitemap.xml
+Sitemap: https://webdesigns4u.co.za/sitemap.xml
