@@ -221,7 +221,35 @@ async function postWebhook(url, lead) {
   if (!res.ok) throw new Error(`Webhook ${url} ${res.status}`);
 }
 
+/* Health check (GET). Never reveals secrets.
+   /api/lead?check          -> is email delivery configured on this deploy?
+   /api/lead?test=<token>   -> sends one sample enquiry to the inbox. Only works
+                               while LEAD_TEST_TOKEN (24+ chars) is set in Netlify;
+                               delete that variable to switch test sends off. */
+async function healthCheck(url) {
+  const status = { ok: true, emailConfigured: !!env("RESEND_API_KEY"), notifyTo: NOTIFY_TO(), sender: FROM() };
+  const token = env("LEAD_TEST_TOKEN");
+  const given = url.searchParams.get("test");
+  if (given === null) return json(status);
+  if (token.length < 24 || given !== token) return json({ ok: false, error: "Test sends are off." }, 403);
+  if (!status.emailConfigured) return json({ ...status, sent: false, error: "RESEND_API_KEY is not set on this deploy." });
+  const sample = {
+    kind: "build", name: "Test Visitor", businessName: "Test Enquiry (from Claude)", businessType: "Driving School",
+    businessDescription: "Health check: confirms website enquiries reach this inbox.", goals: ["Take bookings"],
+    websiteType: "Booking website", style: "Premium", email: "", phone: "071 437 9593", existingWebsite: "",
+    message: "This is a test enquiry sent to confirm the website's email delivery works. No action needed.",
+    personalised: {}, source: {}, received_at: new Date().toISOString()
+  };
+  try {
+    await sendEmail({ to: NOTIFY_TO(), subject: "WEB DESIGNS4U | Test enquiry: email delivery works", html: emailHtml(sample), text: emailText(sample) });
+    return json({ ...status, sent: true });
+  } catch (e) {
+    return json({ ...status, sent: false, error: e.message });
+  }
+}
+
 export default async (req, context) => {
+  if (req.method === "GET") return healthCheck(new URL(req.url));
   if (req.method !== "POST") return json({ ok: false, error: "Use POST." }, 405);
   const raw = await req.text();
   if (raw.length > 20000) return json({ ok: false, error: "Request too large." }, 413);
