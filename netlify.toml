@@ -2,6 +2,9 @@
   publish = "."
   functions = "netlify/functions"
 
+[build.environment]
+  NODE_VERSION = "20"
+
 # Videos and posters: cached for a week. Rename the file when you replace a clip
 # (e.g. hero-v2.mp4) and update assets/js/config.js so visitors get the new one.
 [[headers]]
