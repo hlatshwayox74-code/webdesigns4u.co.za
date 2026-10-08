@@ -26,7 +26,12 @@ const json = (body, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json" } });
 
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const env = (k) => (process.env[k] || "").trim();
+// Netlify's documented accessor first; process.env as a fallback (local tests).
+const env = (k) => {
+  let v = "";
+  try { v = (globalThis.Netlify && globalThis.Netlify.env && globalThis.Netlify.env.get(k)) || ""; } catch {}
+  return String(v || process.env[k] || "").trim();
+};
 const NOTIFY_TO = () => env("LEAD_NOTIFY_TO") || "webdesigns4u.co.za@gmail.com";
 const FROM = () => env("LEAD_FROM") || "Web Designs4U <onboarding@resend.dev>";
 const list = (v) => [].concat(v || []).filter(Boolean).join(", ");
