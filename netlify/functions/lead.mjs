@@ -36,7 +36,7 @@ const NOTIFY_TO = () => env("LEAD_NOTIFY_TO") || "webdesigns4u.co.za@gmail.com";
 const FROM = () => env("LEAD_FROM") || "Web Designs4U <onboarding@resend.dev>";
 const list = (v) => [].concat(v || []).filter(Boolean).join(", ");
 
-// 071 437 9593 -> 27714379593 so you can tap through to the customer's WhatsApp
+// 079 834 7243 -> 27798347243 so you can tap through to the customer's WhatsApp
 function waNumber(raw) {
   let d = String(raw || "").replace(/[^\d+]/g, "");
   if (d.startsWith("+")) d = d.slice(1);
@@ -207,7 +207,7 @@ function confirmationHtml(lead) {
     <p style="margin:0 0 20px;font-family:${F};font-size:16px;line-height:24px;color:#111111;">Prefer to chat now? We're on WhatsApp.</p>
   </td></tr>
   <tr><td class="px" style="padding:0 32px 24px;">
-    ${button("https://wa.me/27714379593", "WhatsApp us: 071 437 9593", "#25D366", "#000000")}${button("mailto:webdesigns4u.co.za@gmail.com", "Email us", "#111111", "#ffffff")}
+    ${button("https://wa.me/27798347243", "WhatsApp us: 079 834 7243", "#25D366", "#000000")}${button("mailto:webdesigns4u.co.za@gmail.com", "Email us", "#111111", "#ffffff")}
   </td></tr>`;
   return layout({ preheader: `We've received your enquiry for ${business}.`, eyebrow: "WEB DESIGNS4U", title: "Your next chapter starts here.", subtitle: business, body });
 }
@@ -241,7 +241,7 @@ async function healthCheck(url) {
   const sample = {
     kind: "build", name: "Test Visitor", businessName: "Test Enquiry (from Claude)", businessType: "Driving School",
     businessDescription: "Health check: confirms website enquiries reach this inbox.", goals: ["Take bookings"],
-    websiteType: "Booking website", style: "Premium", email: "", phone: "071 437 9593", existingWebsite: "",
+    websiteType: "Booking website", style: "Premium", email: "", phone: "079 834 7243", existingWebsite: "",
     message: "This is a test enquiry sent to confirm the website's email delivery works. No action needed.",
     personalised: {}, source: {}, received_at: new Date().toISOString()
   };
@@ -293,7 +293,7 @@ export default async (req, context) => {
     extras.push(sendEmail({
       to: lead.email,
       subject: `${lead.businessName || "Your business"}: your next chapter starts here`,
-      html: confirmationHtml(lead), text: `Hi ${lead.name || "there"},\n\nWe've received your enquiry for ${lead.businessName || "your business"}. We'll be in touch shortly.\n\nPrefer to chat now? WhatsApp us on 071 437 9593: https://wa.me/27714379593\n\nWeb Designs4U\nDon't just get a website. Get a digital experience.`
+      html: confirmationHtml(lead), text: `Hi ${lead.name || "there"},\n\nWe've received your enquiry for ${lead.businessName || "your business"}. We'll be in touch shortly.\n\nPrefer to chat now? WhatsApp us on 079 834 7243: https://wa.me/27798347243\n\nWeb Designs4U\nDon't just get a website. Get a digital experience.`
     }));
   }
   const results = await Promise.allSettled(extras);

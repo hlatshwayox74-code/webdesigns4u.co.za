@@ -4,7 +4,7 @@ A scroll-driven, 12-chapter website that sells web design by being the demonstra
 
 ## Before you go live
 
-1. **Contact details are set:** webdesigns4u.co.za@gmail.com and 071 437 9593 (links use `tel:+27714379593` and `wa.me/27714379593`). Change them in one place: `contact` in `assets/js/config.js`.
+1. **Contact details are set:** webdesigns4u.co.za@gmail.com and 079 834 7243 (links use `tel:+27798347243` and `wa.me/27798347243`). Change them in one place: `contact` in `assets/js/config.js`.
 2. **Turn on enquiry emails.** This takes about 5 minutes; see "Enquiries to your Gmail" below.
 3. **Video licensing.** The clips in `/media` came from Pinterest creators. Replace them with footage you own or have licensed before a commercial launch. See "Swapping videos".
 4. **Domain in metadata.** In `index.html`, change `og:image` to the full URL once the domain is live.

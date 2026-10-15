@@ -25,10 +25,10 @@ window.WD4U_CONFIG = {
      phone / business / whatsapp: use international format, e.g. +27...  */
   contact: {
     email: "webdesigns4u.co.za@gmail.com",
-    phone: "071 437 9593",          // shown as written
-    phoneIntl: "+27714379593",      // used for tel: links
-    whatsapp: "071 437 9593",       // shown as written
-    whatsappIntl: "27714379593",    // used for wa.me links (digits only, no +)
+    phone: "079 834 7243",          // shown as written
+    phoneIntl: "+27798347243",      // used for tel: links
+    whatsapp: "079 834 7243",       // shown as written
+    whatsappIntl: "27798347243",    // used for wa.me links (digits only, no +)
     businessNumber: "",             // optional second line; empty = hidden
     whatsappMessage: "Hi Web Designs4U 👋\n\nI'd like to talk about building a website for my business.",
     social: {           // optional: full URLs

@@ -595,8 +595,8 @@
 
     const PHONE_OK = (v) => {
       const d = v.replace(/[\s().-]/g, "");
-      if (/^\+\d{9,15}$/.test(d)) return true;      // international, e.g. +27 71 437 9593
-      if (/^0\d{9}$/.test(d)) return true;            // South African local, e.g. 071 437 9593
+      if (/^\+\d{9,15}$/.test(d)) return true;      // international, e.g. +27 79 834 7243
+      if (/^0\d{9}$/.test(d)) return true;            // South African local, e.g. 079 834 7243
       return /^\d{9,15}$/.test(d) && !d.startsWith("0");
     };
     const EMAIL_OK = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
