@@ -22,6 +22,14 @@
    was delivered when it wasn't.
    ===================================================================== */
 
+// The same concept engine and renderer the website uses, so the template we
+// receive is exactly what the customer saw. Bundled into the function by esbuild.
+import "../../assets/js/concept-engine.js";
+import "../../assets/js/concept-render.js";
+const Concept = globalThis.WD4U_Concept;
+const Render = globalThis.WD4U_RenderConcept;
+const PUBLIC_ORIGIN = "https://webdesigns4u.netlify.app";
+
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json" } });
 
@@ -35,6 +43,23 @@ const env = (k) => {
 const NOTIFY_TO = () => env("LEAD_NOTIFY_TO") || "webdesigns4u.co.za@gmail.com";
 const FROM = () => env("LEAD_FROM") || "Web Designs4U <onboarding@resend.dev>";
 const list = (v) => [].concat(v || []).filter(Boolean).join(", ");
+
+// Rebuild the customer's template from their answers (never trust HTML from the browser).
+function leadConcept(lead) {
+  if (!lead || lead.kind === "contact") return null;
+  const c = lead.concept && typeof lead.concept === "object" ? lead.concept : {};
+  const goals = Array.isArray(c.g) && c.g.length ? c.g : lead.goals;
+  return Concept.build({ name: c.n || lead.businessName || lead.name, type: c.t || lead.businessType, goals, style: c.s || lead.style }, c.v);
+}
+function siteOrigin(req) {
+  try { const o = new URL(req.url).origin; if (/^https:\/\//.test(o) && !/localhost|127\.0\.0\.1/.test(o)) return o; } catch {}
+  return PUBLIC_ORIGIN;
+}
+const slug = (s) => String(s || "business").toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40) || "business";
+function templateAttachment(cx, origin) {
+  const html = Render.page(cx, { base: origin, animate: false });
+  return { filename: `template-${slug(cx.name)}-${cx.id}.html`, content: Buffer.from(html, "utf8").toString("base64") };
+}
 
 // 079 834 7243 -> 27798347243 so you can tap through to the customer's WhatsApp
 function waNumber(raw) {
@@ -72,7 +97,9 @@ function fields(lead) {
 }
 
 function emailText(lead) {
-  return "WEB DESIGNS4U | NEW WEBSITE ENQUIRY\n\n" +
+  const cx = lead._concept;
+  const tpl = cx ? `TEMPLATE ${cx.id}\n${cx.category} · ${cx.style} feel · ${cx.layout} layout\nOpen it: ${lead._conceptLink}\nHeadline: ${cx.headline}\nCall to action: ${cx.cta}\nBuilt from what leading ${cx.research.label} do:\n- ${cx.research.patterns.join("\n- ")}\nOur edge: ${cx.research.edge}\n(The template is also attached as an HTML file.)\n\n` : "";
+  return "WEB DESIGNS4U | NEW WEBSITE ENQUIRY\n\n" + tpl +
     fields(lead).map(([k, v]) => `${k}:\n${v || "-"}`).join("\n\n");
 }
 
@@ -150,6 +177,34 @@ const button = (href, label, bg, fg, border) =>
 
 const link = (href, text) => `<a href="${esc(href)}" style="color:#111111;text-decoration:underline;">${esc(text)}</a>`;
 
+/* Email-safe picture of the customer's template, in their chosen colours. */
+function templatePreview(cx, href) {
+  const t = cx.theme, on = Render.onColor(t.accent);
+  const ff = t.serif ? "Georgia, 'Times New Roman', serif" : F;
+  const up = t.upper ? "text-transform:uppercase;letter-spacing:2px;" : "";
+  const mut = `color:${t.fg};opacity:.7;`;
+  const items = cx.module.items.slice(0, 3).map(i => `
+      <tr><td style="padding:10px 0;border-top:1px solid rgba(127,127,127,.25);font-family:${ff};font-size:14px;line-height:20px;color:${t.fg};"><strong>${esc(i.t)}</strong><br><span style="${mut}font-size:13px;">${esc(i.d)}</span></td>
+      <td align="right" style="padding:10px 0 10px 12px;border-top:1px solid rgba(127,127,127,.25);font-family:${ff};font-size:14px;line-height:20px;color:${t.accent};font-weight:bold;white-space:nowrap;">${esc(i.p)}</td></tr>`).join("");
+  const sw = (hex, label) => `<td style="padding:0 14px 0 0;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td width="22" height="22" style="width:22px;height:22px;background:${hex};border:1px solid #cccccc;font-size:0;line-height:0;">&nbsp;</td><td style="padding-left:6px;font-family:${F};font-size:12px;color:#555555;">${label} ${hex}</td></tr></table></td>`;
+  return `
+  <tr><td class="px" style="padding:20px 32px 6px;">
+    <a href="${esc(href)}" style="text-decoration:none;display:block;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:${t.bg};border:1px solid #d6d6d6;">
+      <tr><td style="padding:14px 18px;font-family:${ff};font-size:15px;font-weight:bold;color:${t.fg};${up}">${esc(cx.name)}</td>
+          <td align="right" style="padding:14px 18px;"><span style="display:inline-block;background:${t.accent};color:${on};font-family:${F};font-size:12px;font-weight:bold;padding:8px 12px;">${esc(cx.cta)}</span></td></tr>
+      <tr><td colspan="2" style="padding:18px 18px 6px;font-family:${ff};font-size:28px;line-height:31px;font-weight:bold;color:${t.fg};${up}">${esc(cx.headline)}</td></tr>
+      <tr><td colspan="2" style="padding:0 18px 16px;font-family:${ff};font-size:15px;line-height:22px;${mut}">${esc(cx.tagline)}</td></tr>
+      <tr><td colspan="2" style="padding:0 18px 18px;"><span style="display:inline-block;background:${t.accent};color:${on};font-family:${F};font-size:14px;font-weight:bold;padding:11px 16px;">${esc(cx.cta)}</span>&nbsp;<span style="display:inline-block;border:1px solid rgba(127,127,127,.5);color:${t.fg};font-family:${F};font-size:14px;font-weight:bold;padding:10px 15px;">${esc(cx.secondaryCta)}</span></td></tr>
+      <tr><td colspan="2" style="padding:6px 18px 16px;background:${t.surface};">
+        <p style="margin:10px 0 4px;font-family:${ff};font-size:16px;font-weight:bold;color:${t.fg};${up}">${esc(cx.module.title)}</p>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${items}</table>
+      </td></tr>
+    </table></a>
+  </td></tr>
+  <tr><td class="px" style="padding:10px 32px 4px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>${sw(t.bg, "Background")}${sw(t.fg, "Text")}${sw(t.accent, "Accent")}</tr></table></td></tr>`;
+}
+
 function emailHtml(lead) {
   const src = lead.source || {};
   const campaign = [src.utm_source, src.utm_medium, src.utm_campaign].filter(Boolean).join(" / ");
@@ -172,7 +227,16 @@ function emailHtml(lead) {
     return layout({ preheader: `${lead.fullName || "Someone"}: ${String(lead.message || "").slice(0, 90)}`, eyebrow: "WEB DESIGNS4U", title: "New message", subtitle: lead.fullName || "", body: body + `<tr><td style="padding:0 0 16px;"></td></tr>` });
   }
   const p = lead.personalised || {};
-  body = actions +
+  const cx = lead._concept;
+  const templateBlock = cx ? section(`Their website template · ${cx.id}`, [
+      templatePreview(cx, lead._conceptLink),
+      `<tr><td class="px" style="padding:14px 32px 6px;">${button(lead._conceptLink, "Open the full template", "#ff7a2f", "#000000")}</td></tr>`,
+      field("What they chose", `${cx.category} · ${cx.style} feel · ${cx.layout} layout`),
+      field(`Built from what leading ${cx.research.label} do`, cx.research.patterns.map(x => "✓ " + x).join("\n")),
+      field("Our edge in this template", cx.research.edge),
+      field("Attached", "The full template as an HTML file. Open it in any browser, or edit it to start the build.")
+    ]) : "";
+  body = actions + templateBlock +
     section("The business", [
       field("Business", lead.businessName), field("Business Type", lead.businessType),
       field("What they do", lead.businessDescription),
@@ -207,16 +271,16 @@ function confirmationHtml(lead) {
     <p style="margin:0 0 20px;font-family:${F};font-size:16px;line-height:24px;color:#111111;">Prefer to chat now? We're on WhatsApp.</p>
   </td></tr>
   <tr><td class="px" style="padding:0 32px 24px;">
-    ${button("https://wa.me/27798347243", "WhatsApp us: 079 834 7243", "#25D366", "#000000")}${button("mailto:webdesigns4u.co.za@gmail.com", "Email us", "#111111", "#ffffff")}
+    ${lead._conceptLink ? button(lead._conceptLink, "View your website template", "#ff7a2f", "#000000") : ""}${button("https://wa.me/27798347243", "WhatsApp us: 079 834 7243", "#25D366", "#000000")}${button("mailto:webdesigns4u.co.za@gmail.com", "Email us", "#111111", "#ffffff")}
   </td></tr>`;
   return layout({ preheader: `We've received your enquiry for ${business}.`, eyebrow: "WEB DESIGNS4U", title: "Your next chapter starts here.", subtitle: business, body });
 }
 
-async function sendEmail({ to, subject, html, text, replyTo }) {
+async function sendEmail({ to, subject, html, text, replyTo, attachments }) {
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${env("RESEND_API_KEY")}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from: FROM(), to: [to], subject, html, text, ...(replyTo ? { reply_to: replyTo } : {}) })
+    body: JSON.stringify({ from: FROM(), to: [to], subject, html, text, ...(replyTo ? { reply_to: replyTo } : {}), ...(attachments && attachments.length ? { attachments } : {}) })
   });
   if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);
 }
@@ -231,7 +295,7 @@ async function postWebhook(url, lead) {
    /api/lead?test=<token>   -> sends one sample enquiry to the inbox. Only works
                                while LEAD_TEST_TOKEN (24+ chars) is set in Netlify;
                                delete that variable to switch test sends off. */
-async function healthCheck(url) {
+async function healthCheck(url, origin) {
   const status = { ok: true, emailConfigured: !!env("RESEND_API_KEY"), notifyTo: NOTIFY_TO(), sender: FROM() };
   const token = env("LEAD_TEST_TOKEN");
   const given = url.searchParams.get("test");
@@ -243,10 +307,13 @@ async function healthCheck(url) {
     businessDescription: "Health check: confirms website enquiries reach this inbox.", goals: ["Take bookings"],
     websiteType: "Booking website", style: "Premium", email: "", phone: "079 834 7243", existingWebsite: "",
     message: "This is a test enquiry sent to confirm the website's email delivery works. No action needed.",
-    personalised: {}, source: {}, received_at: new Date().toISOString()
+    personalised: {}, source: {}, received_at: new Date().toISOString(),
+    concept: { n: "Test Enquiry (from Claude)", t: "Driving School", g: ["Take bookings"], s: "Premium", v: 0 }
   };
+  sample._concept = leadConcept(sample);
+  sample._conceptLink = Concept.viewerUrl(sample._concept, origin);
   try {
-    await sendEmail({ to: NOTIFY_TO(), subject: "WEB DESIGNS4U | Test enquiry: email delivery works", html: emailHtml(sample), text: emailText(sample) });
+    await sendEmail({ to: NOTIFY_TO(), subject: `WEB DESIGNS4U | Test enquiry with template ${sample._concept.id}`, html: emailHtml(sample), text: emailText(sample), attachments: [templateAttachment(sample._concept, origin)] });
     return json({ ...status, sent: true });
   } catch (e) {
     return json({ ...status, sent: false, error: e.message });
@@ -254,7 +321,7 @@ async function healthCheck(url) {
 }
 
 export default async (req, context) => {
-  if (req.method === "GET") return healthCheck(new URL(req.url));
+  if (req.method === "GET") return healthCheck(new URL(req.url), siteOrigin(req));
   if (req.method !== "POST") return json({ ok: false, error: "Use POST." }, 405);
   const raw = await req.text();
   if (raw.length > 20000) return json({ ok: false, error: "Request too large." }, 413);
@@ -267,6 +334,16 @@ export default async (req, context) => {
 
   lead.received_at = new Date().toISOString();
   lead.country = context?.geo?.country?.code || "";
+  const origin = siteOrigin(req);
+  let attachments = [];
+  try {
+    lead._concept = leadConcept(lead);
+    if (lead._concept) {
+      lead._conceptLink = Concept.viewerUrl(lead._concept, origin);
+      lead.conceptId = lead._concept.id; lead.conceptLink = lead._conceptLink; // for webhooks/CRM
+      attachments = [templateAttachment(lead._concept, origin)];
+    }
+  } catch (e) { console.error("[lead] template build failed:", e.message); } // never block the lead
 
   // 1. Email to Web Designs4U: the delivery that decides success.
   let emailed = false, emailError = "";
@@ -276,9 +353,9 @@ export default async (req, context) => {
         to: NOTIFY_TO(),
         subject: lead.kind === "contact"
           ? `WEB DESIGNS4U | New message from ${lead.fullName || "the website"}`
-          : `WEB DESIGNS4U | New website enquiry: ${lead.businessName || lead.name || "new business"}`,
+          : `WEB DESIGNS4U | New website enquiry: ${lead.businessName || lead.name || "new business"}${lead._concept ? ` (${lead._concept.id})` : ""}`,
         html: emailHtml(lead), text: emailText(lead),
-        replyTo: lead.email || undefined
+        replyTo: lead.email || undefined, attachments
       });
       emailed = true;
     } catch (e) { emailError = e.message; console.error("[lead] email failed:", e.message); }
@@ -288,12 +365,13 @@ export default async (req, context) => {
 
   // 2. Extras: webhooks and optional customer confirmation. Failures here never block the lead.
   const extras = [];
-  env("LEAD_WEBHOOK_URLS").split(",").map((u) => u.trim()).filter(Boolean).forEach((url) => extras.push(postWebhook(url, lead)));
+  const { _concept, _conceptLink, ...publicLead } = lead;
+  env("LEAD_WEBHOOK_URLS").split(",").map((u) => u.trim()).filter(Boolean).forEach((url) => extras.push(postWebhook(url, publicLead)));
   if (emailed && env("LEAD_CONFIRM") === "true" && lead.email && lead.kind !== "contact") {
     extras.push(sendEmail({
       to: lead.email,
       subject: `${lead.businessName || "Your business"}: your next chapter starts here`,
-      html: confirmationHtml(lead), text: `Hi ${lead.name || "there"},\n\nWe've received your enquiry for ${lead.businessName || "your business"}. We'll be in touch shortly.\n\nPrefer to chat now? WhatsApp us on 079 834 7243: https://wa.me/27798347243\n\nWeb Designs4U\nDon't just get a website. Get a digital experience.`
+      html: confirmationHtml(lead), text: `Hi ${lead.name || "there"},\n\nWe've received your enquiry for ${lead.businessName || "your business"}. We'll be in touch shortly.\n\n${lead._conceptLink ? `Your website template: ${lead._conceptLink}\n\n` : ""}Prefer to chat now? WhatsApp us on 079 834 7243: https://wa.me/27798347243\n\nWeb Designs4U\nDon't just get a website. Get a digital experience.`
     }));
   }
   const results = await Promise.allSettled(extras);

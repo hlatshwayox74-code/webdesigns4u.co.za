@@ -85,7 +85,7 @@
 
   // Fingerprint of what the visitor typed (not timestamps), for duplicate protection.
   function fingerprint(kind, data) {
-    const keys = ["name", "fullName", "businessName", "businessType", "businessDescription", "email", "phone", "reply", "message", "existingWebsite", "websiteType", "style"];
+    const keys = ["name", "fullName", "businessName", "businessType", "businessDescription", "email", "phone", "reply", "message", "existingWebsite", "websiteType", "style", "conceptId"];
     const str = kind + "|" + keys.map(k => String(data[k] || "").trim().toLowerCase()).join("|") + "|" + [].concat(data.goals || []).join(",");
     let h = 0; for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) | 0;
     return "wd4u.sent." + h;

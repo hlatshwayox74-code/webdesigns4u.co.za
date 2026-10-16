@@ -2,6 +2,10 @@
   publish = "."
   functions = "netlify/functions"
 
+[functions]
+  # Bundles the shared concept engine/renderer (assets/js) into the email function.
+  node_bundler = "esbuild"
+
 [build.environment]
   NODE_VERSION = "20"
 
@@ -16,6 +20,8 @@
   for = "/assets/fonts/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    # Lets the downloaded template file (opened from disk) load the brand font.
+    Access-Control-Allow-Origin = "*"
 
 # Design and scripts: browsers check for a newer version on every visit
 # (cheap thanks to ETags), so updates show up immediately.

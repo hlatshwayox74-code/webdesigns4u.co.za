@@ -747,6 +747,31 @@ textarea.big-input { font-size: clamp(1.1rem, 2vw, 1.6rem); font-weight: 400; fo
   .journey li { padding-bottom: 6px; }
 }
 
+
+/* ---------- Chapter 07: real template preview + research ---------- */
+.cxf { position: relative; overflow: hidden; background: #000; }
+.cxf[data-surface="desktop"] { aspect-ratio: 16 / 10; }
+.concept__phone .cxf { height: 100%; }
+.cxf iframe { position: absolute; top: 0; left: 0; border: 0; transform-origin: 0 0; pointer-events: none; background: #000; }
+.concept__open { position: absolute; inset: 0 0 8% 0; z-index: 3; }
+.concept__open:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.research { margin-top: 1.8rem; padding-top: 1.2rem; border-top: 1px solid var(--line); max-width: 46ch; }
+.research__k { margin: 0 0 .7rem; font-size: 15px; color: var(--dim); }
+.research__k span { color: var(--ink); font-weight: 700; }
+.research__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.research__list li { position: relative; padding-left: 26px; font-size: 15px; line-height: 1.4; }
+.research__list li::before { content: ""; position: absolute; left: 2px; top: .28em; width: 12px; height: 7px; border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
+.research__edge { margin: 1rem 0 0; padding: 12px 14px; border-left: 2px solid var(--accent); background: rgba(255,255,255,.04); display: grid; gap: 4px; font-size: 15px; line-height: 1.45; }
+.research__edge b { color: var(--accent); font-size: 13px; font-variation-settings: "wdth" 90; }
+.done__concept { margin: 0; font-size: 15px; color: var(--dim); }
+.done__concept b { color: var(--ink); }
+.done__concept a { color: var(--accent); }
+.journey-card .jc-template { margin: 10px 0 0; font-size: 13px; color: var(--dim); }
+.journey-card .jc-template b { color: var(--ink); }
+.journey-card .jc-template a { color: var(--accent); }
+/* HUD legibility when content scrolls underneath */
+.hud::before { content: ""; position: absolute; inset: 0 0 -24px; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.45) 60%, transparent 100%); pointer-events: none; }
+
 /* ---------- Scroll cue (shown after the intro until the visitor scrolls) ---------- */
 .scroll-cue {
   position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 28px); z-index: 58;

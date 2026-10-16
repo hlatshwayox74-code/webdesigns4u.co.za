@@ -402,44 +402,69 @@
   })();
 
   /* ================= CH07: CONCEPT PREVIEW ================= */
-  let conceptDirty = true, conceptVisible = false, variant = 0, buildToken = 0;
-  const STYLE_POSTER = { Luxury: "final", Premium: "final", Editorial: "story", Creative: "story", Bold: "story", Futuristic: "network", Modern: "network", Corporate: "internet", Minimal: "alive", Custom: "hero" };
-  const cxD = $('.cx[data-surface="desktop"]'), cxP = $('.cx[data-surface="phone"]'), cxLog = $(".concept__log");
+  // The preview is the real template (same renderer as the email + full-screen view).
+  let conceptDirty = true, conceptVisible = false, variant = 0, buildToken = 0, currentConcept = null;
+  const httpOrigin = /^https?:/.test(location.protocol) ? location.origin : "";
+  const SITE_ORIGIN = httpOrigin || "https://webdesigns4u.netlify.app";
+  const frameD = $('.cxf[data-surface="desktop"] iframe'), frameP = $('.cxf[data-surface="phone"] iframe'), cxLog = $(".concept__log");
+  const FRAMES = [[frameD, 1280], [frameP, 390]];
+  function scaleFrames() {
+    FRAMES.forEach(([f, w]) => {
+      const box = f.parentElement; const sc = box.clientWidth / w; if (!sc) return;
+      f.style.width = w + "px"; f.style.height = Math.ceil(box.clientHeight / sc) + "px"; f.style.transform = `scale(${sc})`;
+    });
+  }
+  if (window.ResizeObserver) { const ro = new ResizeObserver(scaleFrames); FRAMES.forEach(([f]) => ro.observe(f.parentElement)); }
+  addEventListener("resize", scaleFrames);
+
+  function conceptFromState() {
+    const b = Store.state.business;
+    return window.WD4U_Concept.build({ name: b.name, type: b.type, goals: b.goals, style: b.style }, variant);
+  }
+  const conceptLink = (cx) => window.WD4U_Concept.viewerUrl(cx, SITE_ORIGIN);
+
+  function renderResearch(cx) {
+    $('[data-r="label"]').textContent = cx.research.label;
+    $('[data-r="list"]').innerHTML = cx.research.patterns.map(x => `<li>${esc(x)}</li>`).join("");
+    $('[data-r="edge"]').textContent = cx.research.edge;
+  }
+
+  function autoScroll(token) {
+    if (reduce) return;
+    const docs = FRAMES.map(([f]) => { try { return f.contentDocument && f.contentDocument.scrollingElement; } catch (e) { return null; } }).filter(Boolean);
+    if (!docs.length) return;
+    const dur = 9000, t0 = performance.now();
+    (function step(t) {
+      if (token !== buildToken) return;
+      const k = Math.min(1, (t - t0) / dur), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+      docs.forEach(d => { d.scrollTop = e * (d.scrollHeight - d.clientHeight); });
+      if (k < 1) requestAnimationFrame(step);
+      else setTimeout(() => { if (token === buildToken) docs.forEach(d => d.scrollTo({ top: 0, behavior: "smooth" })); }, 1600);
+    })(t0);
+  }
 
   async function buildConcept() {
     const token = ++buildToken; conceptDirty = false;
     const b = Store.state.business;
     const cx = await window.WD4U_Concept.generate({ name: b.name, type: b.type, goals: b.goals, style: b.style }, variant);
     if (token !== buildToken) return;
-    const t = cx.theme;
-    [cxD, cxP].forEach(el => {
-      el.style.setProperty("--cbg", t.bg); el.style.setProperty("--cfg", t.fg); el.style.setProperty("--cacc", t.accent);
-      el.style.setProperty("--cwdth", t.wdth); el.style.setProperty("--cwght", t.wght); el.style.setProperty("--ctrack", t.track);
-      el.style.setProperty("--cupper", t.upper ? "uppercase" : "none"); el.style.setProperty("--cradius", t.radius);
-      el.style.setProperty("--cfont", t.serif ? 'Georgia, "Times New Roman", serif' : "var(--f)");
-    });
-    const poster = posterFor(STYLE_POSTER[cx.style] || "final");
-    const img = poster ? `style="background-image:url('${poster}')"` : "";
-    const n = esc(cx.name), s0 = cx.sections[0], s1 = cx.sections[1];
-    cxD.innerHTML =
-      `<div class="cx-nav piece" data-step="0"><b>${n}</b>${cx.nav.map(x => `<span>${esc(x)}</span>`).join("")}<span class="cx-btn piece" data-step="2">${esc(cx.cta)}</span></div>
-       <div class="cx-hero"><div class="cx-hero__copy"><p class="cx-hero__h piece" data-step="1">${esc(cx.headline)}</p><p class="cx-hero__t piece" data-step="1">${esc(cx.tagline)}</p><span class="cx-btn piece" data-step="2" style="justify-self:start">${esc(cx.cta)}</span></div><div class="cx-hero__img piece" data-step="1" ${img}></div></div>
-       <div class="cx-row"><div class="piece" data-step="3"><small>${esc(s0.title)}</small>${esc(s0.items[0])}</div><div class="piece" data-step="3"><small>${esc(s0.title)}</small>${esc(s0.items[1])}</div><div class="piece" data-step="4"><small>${esc(s1.title)}</small>${esc(cx.trust)}</div><div class="piece" data-step="5"><small>Contact</small>WhatsApp, call, email</div></div>`;
-    cxP.innerHTML =
-      `<div class="cx-nav piece" data-step="0"><b>${n}</b><span aria-hidden="true">☰</span></div>
-       <div class="cx-p-hero"><div class="cx-hero__img piece" data-step="1" ${img}></div><div class="cx-hero__copy"><p class="cx-hero__h piece" data-step="1">${esc(cx.headline)}</p><span class="cx-btn piece" data-step="2">${esc(cx.cta)}</span></div></div>
-       <div class="cx-p-list piece" data-step="3">${s0.items.slice(0, 3).map(x => `<span>${esc(x)}</span>`).join("")}</div>`;
-    cxLog.innerHTML = cx.steps.map(s => `<li>${esc(s)}</li>`).join("");
+    currentConcept = cx;
+    renderResearch(cx);
+    $$("[data-cx-open]").forEach(a => a.href = conceptLink(cx));
+    refreshJourneyLinks();
+    const html = window.WD4U_RenderConcept.page(cx, { base: httpOrigin, animate: !reduce });
+    FRAMES.forEach(([f]) => { f.srcdoc = html; });
+    scaleFrames();
+    cxLog.innerHTML = cx.steps.map(st => `<li>${esc(st)}</li>`).join("");
     const logItems = $$("li", cxLog);
-    const pieces = $$(".piece", cxD).concat($$(".piece", cxP));
-    if (reduce) { pieces.forEach(x => x.classList.add("built")); logItems.forEach(x => x.classList.add("on")); return; }
-    for (let step = 0; step < 6; step++) {
-      await wait(step === 0 ? 150 : 380);
+    if (reduce) { logItems.forEach(x => x.classList.add("on")); return; }
+    for (let step = 0; step < logItems.length; step++) {
+      await wait(step === 0 ? 100 : 380);
       if (token !== buildToken) return;
-      pieces.filter(x => +x.dataset.step === step).forEach(x => x.classList.add("built"));
-      if (logItems[step]) logItems[step].classList.add("on");
-      Sound.tick();
+      logItems[step].classList.add("on"); Sound.tick();
     }
+    await wait(900);
+    if (token === buildToken && conceptVisible) autoScroll(token);
   }
   let conceptTimer = 0;
   Store.on(() => { conceptDirty = true; if (conceptVisible) { clearTimeout(conceptTimer); conceptTimer = setTimeout(buildConcept, 450); } });
@@ -504,17 +529,19 @@
     if (!b.name && !b.type && !(b.goals || []).length) return CT.whatsappMessage;
     return "Hi Web Designs4U 👋\n\nI'd like to build a website for my business.\n\n" +
       lines([["Business Name", b.name], ["Business Type", b.type], ["My goal", list(b.goals)], ["Preferred style", b.style]]) +
+      (b.name || b.type ? "\n\nThe template I built on your site:\n" + conceptLink(conceptFromState()) : "") +
       "\n\nI experienced the Web Designs4U website and I'd like to discuss building my website.";
   }
   // Pre-filled WhatsApp from a full enquiry: the visitor only presses Send.
   function leadWhatsApp(l) {
     return "Hi Web Designs4U 👋\n\nI'd like to build a website for my business.\n\n" +
       lines([["Business Name", l.businessName], ["Business Type", l.businessType], ["What we do", l.businessDescription], ["My goal", list(l.goals)], ["Looking for", l.websiteType], ["Preferred style", l.style], ["Existing website", l.existingWebsite], ["My name", l.name], ["Email", l.email], ["Phone", l.phone], ["Message", l.message]]) +
+      (l.conceptLink ? `\n\nMy website template (${l.conceptId}):\n${l.conceptLink}` : "") +
       "\n\nI experienced the Web Designs4U website and I'd like to discuss building my website.";
   }
   function leadMailto(l) {
     const body = "WEB DESIGNS4U | NEW WEBSITE ENQUIRY\n\n" +
-      lines([["Name", l.name], ["Business", l.businessName], ["Business Type", l.businessType], ["What we do", l.businessDescription], ["Email", l.email], ["Phone / WhatsApp", l.phone], ["Website Goal", list(l.goals)], ["Looking for", l.websiteType], ["Website Style", l.style], ["Existing Website", l.existingWebsite], ["Message", l.message]]) +
+      lines([["Name", l.name], ["Business", l.businessName], ["Business Type", l.businessType], ["What we do", l.businessDescription], ["Email", l.email], ["Phone / WhatsApp", l.phone], ["Website Goal", list(l.goals)], ["Looking for", l.websiteType], ["Website Style", l.style], ["Existing Website", l.existingWebsite], ["Message", l.message], ["Template", l.conceptId ? `${l.conceptId} ${l.conceptLink}` : ""]]) +
       "\n\nSource: Web Designs4U Website";
     return `mailto:${CT.email}?subject=${encodeURIComponent("Website enquiry: " + (l.businessName || l.name || "new business"))}&body=${encodeURIComponent(body)}`;
   }
@@ -615,12 +642,18 @@
     };
     const EMAIL_OK = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
 
+    // The template built from the answers in this form (same engine as chapter 07 and the email).
+    function intakeConcept() {
+      return window.WD4U_Concept.build({ name: f("businessName").value.trim(), type: checked("businessType")[0], goals: checked("goals"), style: checked("style")[0] || Store.state.business.style }, variant);
+    }
     function renderCard() {
       const rows = [
         ["Business", f("businessName").value.trim(), 2], ["Type", checked("businessType")[0], 3],
         ["Goal", checked("goals").join(", "), 4], ["Looking for", checked("websiteType")[0], 5], ["Feel", checked("style")[0], 6]
       ].filter(r => r[1]);
-      card.innerHTML = rows.length ? `<p>From your journey</p><dl>${rows.map(([k, v, n]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd><button type="button" data-goto="${n}">Edit</button></div>`).join("")}</dl>` : "";
+      const cx = intakeConcept();
+      card.innerHTML = (rows.length ? `<p>From your journey</p><dl>${rows.map(([k, v, n]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd><button type="button" data-goto="${n}">Edit</button></div>`).join("")}</dl>` : "") +
+        `<p class="jc-template">Your template <b>${esc(cx.id)}</b> is sent to us with this enquiry. <a href="${esc(conceptLink(cx))}" target="_blank" rel="noopener">View it</a></p>`;
     }
     card.addEventListener("click", e => { const b = e.target.closest("[data-goto]"); if (!b) return; const n = +b.dataset.goto; skip.delete(n); show(n); });
 
@@ -664,7 +697,7 @@
 
     function collect() {
       const b = Store.state.business;
-      return {
+      const lead = {
         name: f("name").value.trim(), businessName: f("businessName").value.trim(),
         businessType: checked("businessType")[0] || "", businessDescription: f("businessDescription").value.trim(),
         goals: checked("goals"), websiteType: checked("websiteType")[0] || "", style: checked("style")[0] || "",
@@ -673,6 +706,9 @@
         personalised: { category: b.type || "", goals: b.goals || [], style: b.style || "" },
         "bot-field": f("bot-field").value
       };
+      const cx = intakeConcept();
+      Object.assign(lead, { concept: cx.inputs, conceptId: cx.id, conceptLink: conceptLink(cx) });
+      return lead;
     }
 
     function result(state, r) {
@@ -682,6 +718,8 @@
       else $(".done__success .done__received", done).textContent = "Your enquiry has been received. We'll be in touch shortly.";
       $('[data-wa="lead"]', done).href = waLink(leadWhatsApp(lastLead));
       $('[data-mail="lead"]', done).href = leadMailto(lastLead);
+      $("[data-done-concept]", done).textContent = lastLead.conceptId || "";
+      $("[data-done-concept-link]", done).href = lastLead.conceptLink || "concept.html";
       done.hidden = false; nav.hidden = true;
       if (state === "success") Sound.chime();
       setTimeout(() => $(".opt--wa", done).focus(), 60);
@@ -776,6 +814,11 @@
   measure(); onScroll();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measure(); fitName(); });
   addEventListener("load", () => { measure(); onScroll(); });
-  if (location.hash && location.hash.length > 1) enter(true); // deep links skip the opening
+  // Template links (concept.html "Build this website") arrive as /?c=<template>&open=intake
+  const qp = new URLSearchParams(location.search);
+  const qc = qp.get("c") ? window.WD4U_Concept.decodeInputs(qp.get("c")) : null;
+  if (qc) { variant = qc.variant; Store.set({ business: { name: qc.name, type: qc.type, goals: qc.goals, style: qc.style } }); }
+  if (qp.get("open") === "intake") { enter(true); setTimeout(() => openL("intake"), 300); }
+  else if (location.hash && location.hash.length > 1) enter(true); // deep links skip the opening
   else runIntro();
 })();

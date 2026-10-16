@@ -26,7 +26,7 @@
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/main.css?v=60de02fe">
+<link rel="stylesheet" href="assets/css/main.css?v=a3d29e5a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -54,7 +54,7 @@
 
 <!-- Netlify Forms detection (hidden). Field names match the lead payload. -->
 <form name="build-my-website" data-netlify="true" netlify-honeypot="bot-field" hidden>
-  <input name="bot-field"><input name="kind"><input name="intent"><input name="name"><input name="businessName"><input name="businessType"><input name="businessDescription"><input name="goals"><input name="websiteType"><input name="style"><input name="email"><input name="phone"><input name="existingWebsite"><textarea name="message"></textarea><input name="personalised_category"><input name="personalised_goals"><input name="personalised_style"><input name="source_utm_source"><input name="source_utm_medium"><input name="source_utm_campaign"><input name="source_utm_term"><input name="source_utm_content"><input name="source_gclid"><input name="source_fbclid"><input name="source_referrer"><input name="source_landing_page"><input name="source_first_seen"><input name="page"><input name="timestamp"><input name="timezone">
+  <input name="bot-field"><input name="kind"><input name="intent"><input name="name"><input name="businessName"><input name="businessType"><input name="businessDescription"><input name="goals"><input name="websiteType"><input name="style"><input name="email"><input name="phone"><input name="existingWebsite"><input name="conceptId"><input name="conceptLink"><textarea name="message"></textarea><input name="personalised_category"><input name="personalised_goals"><input name="personalised_style"><input name="source_utm_source"><input name="source_utm_medium"><input name="source_utm_campaign"><input name="source_utm_term"><input name="source_utm_content"><input name="source_gclid"><input name="source_fbclid"><input name="source_referrer"><input name="source_landing_page"><input name="source_first_seen"><input name="page"><input name="timestamp"><input name="timezone">
 </form>
 <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
   <input name="bot-field"><input name="kind"><input name="fullName"><input name="reply"><input name="businessName"><textarea name="message"></textarea><input name="source_utm_source"><input name="source_utm_medium"><input name="source_utm_campaign"><input name="source_referrer"><input name="source_landing_page"><input name="page"><input name="timestamp"><input name="timezone">
@@ -296,13 +296,19 @@
           <div><dt>Goal</dt><dd data-tag="goal">Get more customers</dd></div>
         </dl>
         <p class="hint-empty when-unnamed">Add your business name in chapter 06 and this becomes yours.</p>
+        <div class="research" aria-live="polite">
+          <p class="research__k">We studied what the leading <span data-r="label">small businesses</span> do online:</p>
+          <ul class="research__list" data-r="list"></ul>
+          <p class="research__edge"><b>What we'd do better</b><span data-r="edge"></span></p>
+        </div>
       </div>
       <div class="concept" id="concept" aria-live="polite">
         <div class="concept__browser">
           <div class="browser__chrome"><i></i><i></i><i></i><span class="browser__url"><span data-bind-slug>yourbusiness</span>.co.za</span></div>
-          <div class="cx" data-surface="desktop"></div>
+          <div class="cxf" data-surface="desktop"><iframe title="Website template preview, desktop" tabindex="-1" aria-hidden="true"></iframe></div>
         </div>
-        <div class="concept__phone"><div class="cx" data-surface="phone"></div></div>
+        <div class="concept__phone"><div class="cxf" data-surface="phone"><iframe title="Website template preview, phone" tabindex="-1" aria-hidden="true"></iframe></div></div>
+        <a class="concept__open" data-cx-open href="concept.html" target="_blank" rel="noopener" data-cursor="Open"><span class="sr-only">Open the full website template in a new tab</span></a>
         <ol class="concept__log" aria-label="Build log"></ol>
       </div>
       <div class="preview__actions">
@@ -310,6 +316,7 @@
         <div class="preview__tools">
           <button class="btn" type="button" id="cx-rebuild">Rebuild</button>
           <button class="btn" type="button" id="cx-style">Try another feel</button>
+          <a class="btn" data-cx-open href="concept.html" target="_blank" rel="noopener">View full template</a>
         </div>
         <div class="preview__go">
           <button class="btn btn--accent" type="button" data-open="intake" data-cta-primary>Build my website</button>
@@ -584,6 +591,7 @@
       <p class="done__name mega" data-bind-name>Your business</p>
       <p class="mega mega--md done__line"><span class="l">Your next chapter</span><span class="l">starts here.</span></p>
       <p class="done__received">Your enquiry has been received. We'll be in touch shortly.</p>
+      <p class="done__concept">Your template <b data-done-concept>—</b> is with our team. <a data-done-concept-link href="concept.html" target="_blank" rel="noopener">View it again</a></p>
       <p class="done__preview" hidden>Preview mode: this enquiry was not sent anywhere.</p>
     </div>
     <div class="done__error">
@@ -616,9 +624,10 @@
 <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
 
 <script src="assets/js/config.js?v=ac97362f"></script>
-<script src="assets/js/concept-engine.js?v=cfc2a965"></script>
-<script src="assets/js/leads.js?v=819dc978"></script>
+<script src="assets/js/concept-render.js?v=5bd5965f"></script>
+<script src="assets/js/concept-engine.js?v=77aa9e0a"></script>
+<script src="assets/js/leads.js?v=1ffc5ece"></script>
 <script src="assets/js/audio.js?v=c0053fa3"></script>
-<script src="assets/js/app.js?v=b41d6ae4"></script>
+<script src="assets/js/app.js?v=b012ffb0"></script>
 </body>
 </html>
