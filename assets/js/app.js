@@ -195,6 +195,19 @@
   const pins = $$(".ch--pin").map(el => ({ el, id: el.id, items: $$("[data-range]", el).map(n => { const r = n.dataset.range.split(",").map(Number); return { n, a: r[0], b: r[1] }; }), top: 0, h: 0, p: -1 }));
   const chapters = $$("[data-num]");
   const rail = $(".rail span");
+  // Scroll cue: visible after the intro until the visitor starts scrolling (returns at the top).
+  const cue = $(".scroll-cue"); let cueOn = false, cueTimer = 0;
+  function updateCue(y) {
+    const on = entered && y < 80;
+    if (on === cueOn) return;
+    cueOn = on; cue.classList.toggle("on", on);
+    clearTimeout(cueTimer); cue.classList.remove("is-nudging");
+    if (on) cueTimer = setTimeout(() => { if (cueOn) cue.classList.add("is-nudging"); }, 5500);
+  }
+  cue.addEventListener("click", () => {
+    scrollBy({ top: Math.round(innerHeight * 0.9), behavior: reduce ? "auto" : "smooth" });
+    Sound.tick();
+  });
   let vh = innerHeight, current = null;
 
   function measure() {
@@ -215,6 +228,7 @@
     });
     const docH = document.documentElement.scrollHeight - vh;
     rail.parentElement.style.setProperty("--p", docH > 0 ? (y / docH).toFixed(4) : 0);
+    updateCue(y);
 
     // Current chapter: the one under the middle of the screen
     let cur = null;
