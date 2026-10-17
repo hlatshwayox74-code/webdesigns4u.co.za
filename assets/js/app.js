@@ -114,6 +114,7 @@
 
   // Long business names shrink to fit their line instead of overflowing.
   function fitName() {
+    if (!body.classList.contains("has-name")) { $$("[data-fit]").forEach(el => { el.style.fontSize = ""; }); return; } // default label always fits; skip forced layout
     $$("[data-fit]").forEach(el => {
       el.style.fontSize = "";
       const avail = el.clientWidth, w = el.scrollWidth;
@@ -134,7 +135,7 @@
     if (autoplayOK) { ensureSrc(heroV); heroV.play().catch(() => {}); }
     else { ensureSrc(heroV); }
     if (reduce) { intro.classList.add("is-ready"); showSet(2); intro.classList.add("is-gate"); $("#count").textContent = "100"; return; }
-    const count = $("#count"); const t0 = performance.now(); const dur = 1700;
+    const count = $("#count"); const t0 = performance.now(); const dur = 1100;
     await new Promise(res => {
       (function step(t) {
         const p = clamp((t - t0) / dur, 0, 1);
@@ -144,7 +145,7 @@
     });
     if (entered) return;
     intro.classList.add("is-ready");
-    await wait(400); if (entered) return; showSet(0);
+    await wait(200); if (entered) return; showSet(0);
     await wait(3000); if (entered) return; showSet(1);
     await wait(2600); if (entered) return; showSet(2);
     await wait(700); if (entered) return; intro.classList.add("is-gate");
@@ -507,14 +508,15 @@
   })();
 
   /* ================= CLOCK ================= */
+  let clockFmt = null;
   function clock() {
     let t;
-    try { t = new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: C.brand.timezone }).format(new Date()); }
+    try { clockFmt = clockFmt || new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: C.brand.timezone }); t = clockFmt.format(new Date()); }
     catch (e) { t = new Date().toTimeString().slice(0, 5); }
     $$("[data-clock]").forEach(el => el.textContent = t);
   }
   $$("[data-tz-label]").forEach(el => el.textContent = C.brand.timezoneLabel);
-  clock(); setInterval(clock, 15000);
+  (window.requestIdleCallback || ((f) => setTimeout(f, 1)))(clock, { timeout: 2000 }); setInterval(clock, 15000);
 
   /* ================= CONTACT ================= */
   const CT = C.contact;

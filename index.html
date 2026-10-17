@@ -33,8 +33,9 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="media/hero.jpg" as="image" fetchpriority="high">
 <link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/main.css?v=a3d29e5a">
+<link rel="stylesheet" href="assets/css/main.css?v=a3bc8733">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -81,7 +82,7 @@
 <!-- ============ OPENING ============ -->
 <div class="intro" id="intro" aria-label="Opening">
   <div class="intro__portal">
-    <video class="vid" data-media="hero" muted loop playsinline preload="auto" aria-hidden="true"></video>
+    <video class="vid" data-media="hero" muted loop playsinline preload="auto" poster="media/hero.jpg" aria-hidden="true"></video>
   </div>
   <p class="intro__count" aria-hidden="true"><span id="count">0</span>%</p>
   <div class="intro__lines" aria-live="polite">
@@ -634,11 +635,11 @@
 
 <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
 
-<script src="assets/js/config.js?v=ac97362f"></script>
-<script src="assets/js/concept-render.js?v=5bd5965f"></script>
-<script src="assets/js/concept-engine.js?v=77aa9e0a"></script>
-<script src="assets/js/leads.js?v=1ffc5ece"></script>
-<script src="assets/js/audio.js?v=c0053fa3"></script>
-<script src="assets/js/app.js?v=b012ffb0"></script>
+<script defer src="assets/js/config.js?v=ac97362f"></script>
+<script defer src="assets/js/concept-render.js?v=5bd5965f"></script>
+<script defer src="assets/js/concept-engine.js?v=77aa9e0a"></script>
+<script defer src="assets/js/leads.js?v=1ffc5ece"></script>
+<script defer src="assets/js/audio.js?v=c0053fa3"></script>
+<script defer src="assets/js/app.js?v=6d7e4720"></script>
 </body>
 </html>
