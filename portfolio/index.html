@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfolio | Xolani, Web Designs4U | Website Designer in Gqeberha</title>
+<meta name="description" content="Websites and Shopify stores designed and built by Xolani at Web Designs4U, Gqeberha: Nexcharge, Elyven, Vessara, plus concept sites for a driving school and local plumbers. WhatsApp 079 834 7243.">
+<meta name="theme-color" content="#050607">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Web Designs4U">
+<meta property="og:title" content="Xolani · Web Designs4U Portfolio: I build websites that sell.">
+<meta property="og:description" content="Four live sites and five concept sites, each designed and coded from a blank page. See the work, then WhatsApp me about yours.">
+<meta property="og:url" content="https://webdesigns4u.co.za/portfolio/">
+<meta property="og:image" content="https://webdesigns4u.co.za/portfolio/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_ZA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://webdesigns4u.co.za/portfolio/img/og.jpg">
+<link rel="canonical" href="https://webdesigns4u.co.za/portfolio/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one dark studio wall; each case study is a chapter with a big browser frame, the brief beside it, and a strip of real screens under it. */
+:root {
+  --ink: #050607;          /* page */
+  --panel: #0e1114;        /* raised surfaces */
+  --line: #1f252b;         /* hairlines */
+  --text: #eef3f6;         /* primary text */
+  --muted: #8b98a3;        /* secondary text */
+  --blue: #6fd3ff;         /* Web Designs4U signal blue */
+  --cream: #ffffcc;        /* Web Designs4U highlight */
+  --wa: #25d366;           /* WhatsApp */
+  --display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  --max: 1240px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--ink); color: var(--text);
+  font-family: var(--body); font-size: 17px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--ink); }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter-r); }
+
+/* type */
+.display {
+  font-family: var(--display); font-weight: 850; font-stretch: 68%;
+  text-transform: uppercase; line-height: .9; letter-spacing: -.005em;
+  text-wrap: balance; margin: 0;
+}
+.eyebrow {
+  font-family: var(--mono); font-size: 12.5px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--blue); margin: 0;
+}
+.lede { font-size: clamp(18px, 2.1vw, 21px); color: #c9d3da; max-width: 60ch; margin: 0; }
+.muted { color: var(--muted); }
+.hl { color: var(--blue); }
+
+/* top bar */
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: color-mix(in srgb, var(--ink) 86%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.bar .wrap { display: flex; align-items: center; gap: 24px; height: 60px; }
+.brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; white-space: nowrap; }
+.brand b { font-family: var(--display); font-weight: 800; font-stretch: 75%; font-size: 20px; text-transform: uppercase; letter-spacing: .01em; }
+.brand span { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.bar nav { display: flex; gap: 22px; margin-left: auto; }
+.bar nav a { text-decoration: none; font-size: 14.5px; color: var(--muted); }
+.bar nav a:hover { color: var(--text); }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; justify-content: center;
+  font-family: var(--body); font-weight: 650; font-size: 15px; text-decoration: none;
+  padding: 12px 20px; border: 1px solid transparent; cursor: pointer; line-height: 1.2;
+  transition: transform .15s ease, background .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-blue { background: var(--blue); color: #001018; }
+.btn-wa { background: var(--wa); color: #03140a; }
+.btn-ghost { background: transparent; color: var(--text); border-color: #3a444d; }
+.btn-ghost:hover { border-color: var(--text); }
+.bar .btn { padding: 9px 14px; font-size: 14px; }
+
+/* hero */
+.hero { padding-block: clamp(48px, 8vw, 104px) 40px; position: relative; }
+.hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(900px 420px at 85% 10%, rgba(111, 211, 255, .10), transparent 60%),
+    linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 100% 88px;
+  mask-image: linear-gradient(#000 0%, transparent 85%);
+  -webkit-mask-image: linear-gradient(#000 0%, transparent 85%);
+  opacity: .55;
+}
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(32px, 5vw, 64px); align-items: center; position: relative; }
+.hero h1 { font-size: clamp(58px, 10.5vw, 148px); margin-top: 18px; }
+.hero h1 em { font-style: normal; color: var(--blue); }
+.hero .lede { margin-top: 26px; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.clock {
+  margin-top: 36px; font-family: var(--mono); font-size: 13.5px; color: var(--muted);
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.clock .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--wa); box-shadow: 0 0 0 4px rgba(37, 211, 102, .15); animation: pulse 2.4s ease-in-out infinite; }
+.clock b { color: var(--text); font-weight: 500; font-variant-numeric: tabular-nums; }
+@keyframes pulse { 50% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); } }
+
+.stack { position: relative; aspect-ratio: 1 / .92; max-width: 100%; }
+.stack .win { position: absolute; width: 78%; }
+.stack .w1 { top: 0; right: 0; transform: rotate(2.2deg); }
+.stack .w2 { top: 30%; left: 0; transform: rotate(-2.4deg); z-index: 2; }
+.stack .w3 { bottom: 0; right: 4%; transform: rotate(1deg); z-index: 3; }
+.stack .win:hover { z-index: 5; }
+
+/* browser frame */
+.win { background: #15191d; border: 1px solid #2a3239; box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .8); overflow: hidden; }
+.win .chrome { display: flex; align-items: center; gap: 6px; padding: 9px 12px; border-bottom: 1px solid #262d33; }
+.win .chrome i { width: 9px; height: 9px; border-radius: 50%; background: #3a434b; display: block; }
+.win .chrome span { margin-left: 10px; font-family: var(--mono); font-size: 11.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.win img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; cursor: zoom-in; }
+
+/* facts strip */
+.facts { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: clamp(40px, 6vw, 72px); }
+.facts .wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.fact { padding-block: 22px; padding-right: 20px; border-right: 1px solid var(--line); padding-left: 20px; }
+.fact:first-child { padding-left: 0; }
+.fact:last-child { border-right: 0; }
+.fact b { display: block; font-family: var(--display); font-weight: 800; font-stretch: 70%; font-size: 34px; text-transform: uppercase; line-height: 1; }
+.fact span { display: block; margin-top: 6px; font-size: 14px; color: var(--muted); }
+
+/* section heads */
+section { scroll-margin-top: 70px; }
+.sec { padding-block: clamp(72px, 10vw, 128px) 0; }
+.sec-head { display: grid; gap: 16px; margin-bottom: clamp(32px, 5vw, 56px); }
+.sec-head h2 { font-size: clamp(44px, 7vw, 96px); }
+
+/* work index */
+.index { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.index a {
+  display: grid; grid-template-columns: 64px minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr) 28px; gap: 16px; align-items: center;
+  padding-block: 22px; border-bottom: 1px solid var(--line); text-decoration: none; transition: background .2s, padding .2s;
+}
+.index a:hover { background: var(--panel); padding-inline: 14px; }
+.index .n { font-family: var(--mono); font-size: 13px; color: var(--blue); }
+.index .t { font-family: var(--display); font-weight: 800; font-stretch: 72%; font-size: clamp(28px, 4vw, 44px); text-transform: uppercase; line-height: 1; }
+.index .k, .index .u { font-size: 14.5px; color: var(--muted); }
+.index .u { font-family: var(--mono); font-size: 13px; }
+.index .arr { font-size: 22px; color: var(--muted); }
+
+/* case study */
+.case { padding-block: clamp(80px, 11vw, 140px) 0; }
+.case-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: end; margin-bottom: 36px; }
+.case-top h3 { font-size: clamp(48px, 7.4vw, 104px); margin-top: 14px; }
+.case-top .lede { margin-bottom: 6px; }
+.case-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.tag { font-family: var(--mono); font-size: 12px; border: 1px solid #2c353d; color: #b9c5cd; padding: 5px 9px; }
+.case .win.big img { aspect-ratio: 16 / 10; }
+.case-body { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 72px); margin-top: clamp(32px, 5vw, 56px); }
+.brief h4, .built h4 { font-family: var(--mono); font-weight: 500; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+.brief p { margin: 0 0 22px; color: #c9d3da; max-width: 52ch; }
+.built ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.built li { display: grid; grid-template-columns: minmax(0, 15ch) minmax(0, 1fr); gap: 18px; padding-block: 14px; border-top: 1px solid var(--line); }
+.built li:last-child { border-bottom: 1px solid var(--line); }
+.built li b { font-weight: 650; color: var(--text); font-size: 15.5px; }
+.built li span { color: #aab6bf; font-size: 15.5px; }
+.strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: clamp(32px, 5vw, 48px); }
+.strip figure { margin: 0; }
+.strip img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border: 1px solid var(--line); cursor: zoom-in; transition: border-color .2s; }
+.strip img:hover { border-color: var(--blue); }
+.strip figcaption { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 8px; }
+.case-foot { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 32px; }
+.case-foot .note { font-size: 14px; color: var(--muted); }
+
+/* Elyven mobile + strip combo */
+.with-phone { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 14px; margin-top: clamp(32px, 5vw, 48px); align-items: start; }
+.with-phone .strip { margin-top: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.phone { border: 1px solid #2a3239; border-radius: 28px; padding: 10px; background: #15191d; }
+.phone img { border-radius: 20px; width: 100%; aspect-ratio: 360 / 800; object-fit: cover; cursor: zoom-in; }
+.phone + figcaption { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 8px; text-align: center; }
+
+/* concepts */
+.concepts { padding-block: clamp(80px, 11vw, 140px) 0; }
+.concepts .sec-head { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: end; }
+.badge { display: inline-block; font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--cream); border: 1px solid rgba(255, 255, 204, .35); background: rgba(255, 255, 204, .06); padding: 4px 8px; }
+.cfeat { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 14px; align-items: start; }
+.cinfo { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(24px, 4vw, 56px); margin: 22px 0 0; }
+.ctitle { font-family: var(--display); font-weight: 800; font-stretch: 72%; text-transform: uppercase; line-height: 1; font-size: clamp(32px, 4vw, 48px); margin: 12px 0 6px; }
+.carea { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin: 0; }
+.cpts { list-style: none; margin: 0; padding: 0; }
+.cpts li { padding: 10px 0; border-top: 1px solid var(--line); color: #aab6bf; font-size: 15px; }
+.cpts li:last-child { border-bottom: 1px solid var(--line); }
+.cpts b { color: var(--text); font-weight: 650; }
+.trade { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 24px; margin: clamp(56px, 8vw, 88px) 0 24px; }
+.trade h3 { font-size: clamp(36px, 5vw, 64px); }
+.cgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(28px, 4vw, 48px) 20px; }
+.ccard .ctitle { font-size: clamp(26px, 3vw, 34px); margin-top: 18px; }
+.ccard .cpts { margin-top: 14px; }
+.cnote { margin-top: 28px; font-size: 14px; color: var(--muted); max-width: 70ch; }
+
+/* creative */
+.creative { background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: clamp(80px, 11vw, 140px); padding-block: clamp(64px, 9vw, 112px); }
+.creative .sec-head { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: end; }
+.ads { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.ads figure { margin: 0; }
+.ads img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; cursor: zoom-in; border: 1px solid var(--line); }
+.ads figcaption { font-family: var(--mono); font-size: 11.5px; color: var(--muted); margin-top: 8px; }
+
+/* services */
+.services { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.svc { padding: 28px 24px 30px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.svc h3 { font-family: var(--display); font-weight: 800; font-stretch: 72%; font-size: 30px; text-transform: uppercase; line-height: 1; margin: 0 0 12px; }
+.svc p { margin: 0; color: #aab6bf; font-size: 15.5px; }
+.svc .proof { display: block; margin-top: 14px; font-family: var(--mono); font-size: 12px; color: var(--blue); }
+
+/* process */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; counter-reset: s; }
+.steps li { padding: 0 20px 0 0; counter-increment: s; }
+.steps li::before {
+  content: counter(s, decimal-leading-zero); display: block; font-family: var(--mono); font-size: 13px; color: var(--blue);
+  padding-bottom: 14px; margin-bottom: 18px; border-bottom: 1px solid #2c353d;
+}
+.steps b { display: block; font-family: var(--display); font-weight: 800; font-stretch: 72%; text-transform: uppercase; font-size: 26px; line-height: 1; margin-bottom: 8px; }
+.steps span { color: #aab6bf; font-size: 15px; }
+
+/* contact */
+.contact { padding-block: clamp(80px, 11vw, 140px) clamp(56px, 8vw, 96px); }
+.contact h2 { font-size: clamp(60px, 11vw, 160px); }
+.contact h2 em { font-style: normal; color: var(--cream); }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); margin-top: 40px; align-items: start; }
+.lines { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.line { display: grid; grid-template-columns: 100px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding-block: 18px; border-bottom: 1px solid var(--line); }
+.line .lab { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.line .val { font-family: var(--display); font-weight: 700; font-stretch: 85%; font-size: clamp(20px, 2.6vw, 28px); user-select: all; overflow-wrap: anywhere; }
+.copy { font-family: var(--mono); font-size: 12px; background: transparent; color: var(--text); border: 1px solid #3a444d; padding: 7px 10px; cursor: pointer; white-space: nowrap; }
+.copy:hover { border-color: var(--blue); color: var(--blue); }
+.copy.ok { border-color: var(--wa); color: var(--wa); }
+.contact .btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+
+footer { border-top: 1px solid var(--line); padding-block: 26px; font-size: 13.5px; color: var(--muted); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; }
+
+/* lightbox */
+dialog.lb { border: 0; padding: 0; background: transparent; max-width: min(1400px, 94vw); max-height: 92vh; }
+dialog.lb::backdrop { background: rgba(0, 0, 0, .88); }
+dialog.lb img { max-height: 86vh; width: auto; margin: 0 auto; border: 1px solid #2a3239; }
+dialog.lb p { text-align: center; font-family: var(--mono); font-size: 12.5px; color: #c9d3da; margin: 10px 0 0; }
+dialog.lb button { position: fixed; top: max(14px, env(safe-area-inset-top, 0px)); right: max(14px, env(safe-area-inset-right, 0px)); background: #15191d; color: #fff; border: 1px solid #3a444d; font-family: var(--mono); font-size: 13px; padding: 8px 12px; cursor: pointer; }
+
+/* entrance: transform only, content always visible */
+@media (prefers-reduced-motion: no-preference) {
+  .stack .w1 { animation: in1 .9s cubic-bezier(.2, .7, .2, 1) both; }
+  .stack .w2 { animation: in2 .9s .08s cubic-bezier(.2, .7, .2, 1) both; }
+  .stack .w3 { animation: in3 .9s .16s cubic-bezier(.2, .7, .2, 1) both; }
+  @keyframes in1 { from { transform: translateY(24px) rotate(5deg); } }
+  @keyframes in2 { from { transform: translateY(24px) rotate(-6deg); } }
+  @keyframes in3 { from { transform: translateY(24px) rotate(4deg); } }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .clock .dot { animation: none; } .btn, .index a { transition: none; } }
+
+/* responsive */
+@media (max-width: 980px) {
+  .hero-grid, .case-top, .case-body, .contact-grid, .creative .sec-head { grid-template-columns: minmax(0, 1fr); }
+  .stack { max-width: 620px; }
+  .concepts .sec-head, .cinfo { grid-template-columns: minmax(0, 1fr); }
+  .ads { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .services { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 32px; }
+  .index a { grid-template-columns: 48px minmax(0, 1fr) 28px; }
+  .index .k, .index .u { display: none; }
+  .bar nav { display: none; }
+  .bar .btn { margin-left: auto; }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .facts .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fact { padding-left: 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .fact:nth-child(n+3) { border-bottom: 0; }
+  .strip { grid-template-columns: minmax(0, 1fr); }
+  .with-phone { grid-template-columns: minmax(0, 1fr); }
+  .with-phone .strip { grid-template-columns: minmax(0, 1fr); }
+  .with-phone > figure, .cfeat > figure { max-width: 240px; margin: 0 auto; }
+  .cfeat, .cgrid { grid-template-columns: minmax(0, 1fr); }
+  .ads { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .services { grid-template-columns: minmax(0, 1fr); }
+  .steps { grid-template-columns: minmax(0, 1fr); }
+  .built li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .line { grid-template-columns: minmax(0, 1fr) auto; }
+  .line .lab { grid-column: 1 / -1; }
+  .brand span { display: none; }
+  .stack { aspect-ratio: 1 / 1.05; }
+  .stack .win { width: 86%; }
+}
+</style>
+
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>Xolani</b><span>Web Designs4U</span></a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#concepts">Concepts</a>
+      <a href="#creative">Launch ads</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-wa" href="https://wa.me/27798347243?text=Hi%20Xolani%2C%20I%20saw%20your%20portfolio.%20I%27d%20like%20a%20website%20for%20my%20business." target="_blank" rel="noopener">WhatsApp me</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Web designer · Gqeberha, South Africa</p>
+        <h1 class="display">I build websites that <em>sell.</em></h1>
+        <p class="lede">I'm Xolani, the designer behind Web Designs4U. I design and code business websites and Shopify stores from a blank page, then write the words and the launch ads to go with them. Below are four sites that are live right now, and five I designed for local businesses that could launch tomorrow. Open any of them on your phone.</p>
+        <div class="hero-cta">
+          <a class="btn btn-blue" href="#work">See the work</a>
+          <a class="btn btn-ghost" href="#contact">Start your website</a>
+        </div>
+        <p class="clock"><span class="dot" aria-hidden="true"></span><span>It's <b id="clk">--:--</b> in Gqeberha. All four live sites are open for business.</span></p>
+      </div>
+      <div class="stack" aria-label="Three live websites">
+        <div class="win w1"><div class="chrome"><i></i><i></i><i></i><span>elyven.co.za</span></div><img src="/portfolio/img/ely.jpg" alt="Elyven eyewear homepage with a Table Mountain sunset hero" data-cap="Elyven · homepage"></div>
+        <div class="win w2"><div class="chrome"><i></i><i></i><i></i><span>nexcharge.co.za</span></div><img src="/portfolio/img/nex.jpg" alt="Nexcharge powerbank homepage with deal selector" data-cap="Nexcharge · homepage"></div>
+        <div class="win w3"><div class="chrome"><i></i><i></i><i></i><span>webdesigns4u.co.za</span></div><img src="/portfolio/img/w4u_c1.jpg" alt="Web Designs4U chapter one, The internet doesn't wait" data-cap="Web Designs4U · chapter 01"></div>
+      </div>
+    </div>
+
+    <div class="facts">
+      <div class="wrap">
+        <div class="fact"><b>4 live sites</b><span>Services, tech, fashion and beauty</span></div>
+        <div class="fact"><b>5 concepts</b><span>A driving school and four plumbers</span></div>
+        <div class="fact"><b>Phone first</b><span>Built for the screen your customers use</span></div>
+        <div class="fact"><b>Site + ads</b><span>Launch creative designed to match</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Selected work · 2026</p>
+        <h2 class="display">Four brands.<br>Four different worlds.</h2>
+      </div>
+      <ol class="index">
+        <li><a href="#case-w4u"><span class="n">01</span><span class="t">Web Designs4U</span><span class="k">Studio website · custom code</span><span class="u">webdesigns4u.co.za</span><span class="arr" aria-hidden="true">↓</span></a></li>
+        <li><a href="#case-nex"><span class="n">02</span><span class="t">Nexcharge</span><span class="k">Single-product store · Shopify</span><span class="u">nexcharge.co.za</span><span class="arr" aria-hidden="true">↓</span></a></li>
+        <li><a href="#case-ely"><span class="n">03</span><span class="t">Elyven</span><span class="k">Eyewear brand + store · Shopify</span><span class="u">elyven.co.za</span><span class="arr" aria-hidden="true">↓</span></a></li>
+        <li><a href="#case-ves"><span class="n">04</span><span class="t">Vessara</span><span class="k">Hair care store · Shopify theme</span><span class="u">vessara.co.za</span><span class="arr" aria-hidden="true">↓</span></a></li>
+        <li><a href="#concepts"><span class="n">+5</span><span class="t">Concepts</span><span class="k">Driving school · 4 plumbers</span><span class="u">Gqeberha · not launched</span><span class="arr" aria-hidden="true">↓</span></a></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CASE 01 -->
+  <section class="case" id="case-w4u">
+    <div class="wrap">
+      <div class="case-top">
+        <div>
+          <p class="eyebrow">Case 01 · Web Designs4U</p>
+          <h3 class="display">A website that sells websites.</h3>
+          <div class="case-meta"><span class="tag">Strategy</span><span class="tag">Story design</span><span class="tag">HTML · CSS · JS</span><span class="tag">Local SEO</span><span class="tag">Lead capture</span></div>
+        </div>
+        <p class="lede">A 12-chapter scroll story that walks a business owner from "my customers are online" to "this is what my website could look like", then hands them straight to WhatsApp.</p>
+      </div>
+
+      <div class="win big"><div class="chrome"><i></i><i></i><i></i><span>webdesigns4u.co.za/#ch-transform</span></div><img src="/portfolio/img/w4u_c4.jpg" alt="Chapter 04: an outdated website ready to be transformed with a drag slider" data-cap="Chapter 04 · drag the line to redesign an old website live"></div>
+
+      <div class="case-body">
+        <div class="brief">
+          <h4>The brief</h4>
+          <p>Most small businesses in Gqeberha have never seen what a good website does for them, so a list of services wouldn't land. The site had to show the difference before it asked for anything.</p>
+          <h4>The idea</h4>
+          <p>Treat the homepage like a short film. Each chapter makes one point, and the visitor's own business name shows up in the design by chapter seven.</p>
+        </div>
+        <div class="built">
+          <h4>What I built</h4>
+          <ul>
+            <li><b>12 chapters</b><span>A full-screen scroll story with chapter navigation, optional sound, and a live clock that reads Gqeberha time.</span></li>
+            <li><b>Before / after</b><span>A drag slider that turns a 2005-style website into a modern one, on desktop or mobile view.</span></li>
+            <li><b>Instant preview</b><span>Visitors pick their industry, goal and style, and a matching website template is generated for them on the spot.</span></li>
+            <li><b>8-step brief</b><span>A guided "Build my website" form. If sending fails, their answers go to WhatsApp already typed, so no lead is lost.</span></li>
+            <li><b>Found locally</b><span>Page titles, descriptions and share images written for "website design Gqeberha / Port Elizabeth".</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="strip">
+        <figure><img src="/portfolio/img/w4u_c3.jpg" alt="Chapter 03: A website is not a page" data-cap="Chapter 03 · design, experience, story, function, conversion" loading="lazy"><figcaption>Ch. 03 · A website is not a page</figcaption></figure>
+        <figure><img src="/portfolio/img/w4u_c6.jpg" alt="Chapter 06: questionnaire with industry, goal and feel options" data-cap="Chapter 06 · the visitor tells the site who they are" loading="lazy"><figcaption>Ch. 06 · Tell us who you are</figcaption></figure>
+        <figure><img src="/portfolio/img/w4u_concept.jpg" alt="Build your own website template page" data-cap="/concept · build your own website template" loading="lazy"><figcaption>/concept · template builder</figcaption></figure>
+      </div>
+
+      <div class="case-foot">
+        <a class="btn btn-ghost" href="https://webdesigns4u.co.za" target="_blank" rel="noopener">Experience it live ↗</a>
+        <span class="note">Best on a phone, with sound on.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE 02 -->
+  <section class="case" id="case-nex">
+    <div class="wrap">
+      <div class="case-top">
+        <div>
+          <p class="eyebrow">Case 02 · Nexcharge</p>
+          <h3 class="display">One product. One page. No confusion.</h3>
+          <div class="case-meta"><span class="tag">Shopify custom theme</span><span class="tag">Product copy</span><span class="tag">Bundles &amp; offers</span><span class="tag">Product video</span></div>
+        </div>
+        <p class="lede">A store for a single magnetic powerbank, designed so a stranger understands the product, picks a deal and checks out without leaving the page.</p>
+      </div>
+
+      <div class="win big"><div class="chrome"><i></i><i></i><i></i><span>nexcharge.co.za</span></div><img src="/portfolio/img/nex.jpg" alt="Nexcharge hero: Power that holds on, with price and deal selector" data-cap="Hero · price, savings and deal picker above the fold"></div>
+
+      <div class="case-body">
+        <div class="brief">
+          <h4>The brief</h4>
+          <p>A new store with no reviews yet, selling a gadget people usually want to hold before they buy. It needed to feel like a real brand, answer every doubt, and make the bigger order the obvious choice.</p>
+          <h4>The idea</h4>
+          <p>Sell the moment, not the battery. The page follows a phone through one day, from the commute at 07:10 to a night out at 21:00, and the powerbank is always attached.</p>
+        </div>
+        <div class="built">
+          <h4>What I built</h4>
+          <ul>
+            <li><b>Deal picker</b><span>Three offers side by side (single, with 240W charger, buy 3 get the charger free) with the saving worked out for the buyer.</span></li>
+            <li><b>A day in a life</b><span>A time-stamped story section with real product photos at each moment of the day.</span></li>
+            <li><b>Honest specs</b><span>Plain copy about what 10000mAh means for your phone, instead of a top-up number that won't match.</span></li>
+            <li><b>Watch it work</b><span>A 20-second product video section, a 7-photo gallery and an 8-question FAQ.</span></li>
+            <li><b>Checkout ready</b><span>Shopify checkout, Yoco payments, tracked delivery info and a buy bar that follows you down the page.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="strip">
+        <figure><img src="/portfolio/img/nex_c_magnet.jpg" alt="Magnetic connection section: Bring it close. It finds its place." data-cap="Magnetic connection · approach, align, charge" loading="lazy"><figcaption>Bring it close. It finds its place.</figcaption></figure>
+        <figure><img src="/portfolio/img/nex_c_moving.jpg" alt="Charging that keeps moving: a timeline from 07:10 to 21:00" data-cap="A day with Nexcharge · 07:10 to 21:00" loading="lazy"><figcaption>07:10 → 21:00 day story</figcaption></figure>
+        <figure><img src="/portfolio/img/nex_c_four.jpg" alt="Four things it does well, feature cards" data-cap="Four things it does well" loading="lazy"><figcaption>Four things it does well</figcaption></figure>
+      </div>
+
+      <div class="case-foot">
+        <a class="btn btn-ghost" href="https://nexcharge.co.za" target="_blank" rel="noopener">Visit the store ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE 03 -->
+  <section class="case" id="case-ely">
+    <div class="wrap">
+      <div class="case-top">
+        <div>
+          <p class="eyebrow">Case 03 · Elyven</p>
+          <h3 class="display">Eyewear built for South African light.</h3>
+          <div class="case-meta"><span class="tag">Brand identity</span><span class="tag">Shopify custom theme</span><span class="tag">Interactive lens demo</span><span class="tag">Product finder</span></div>
+        </div>
+        <p class="lede">A new local eyewear label that needed to look established from day one, and to explain lenses in a way the big brands don't bother to.</p>
+      </div>
+
+      <div class="win big"><div class="chrome"><i></i><i></i><i></i><span>elyven.co.za</span></div><img src="/portfolio/img/ely.jpg" alt="Elyven hero: See the light Through Our Lens over a Table Mountain sunset" data-cap="Hero · Table Mountain at sunset"></div>
+
+      <div class="case-body">
+        <div class="brief">
+          <h4>The brief</h4>
+          <p>Fashion eyewear is crowded with logos. Elyven needed a reason to exist and a look that could sit next to premium labels without copying any of them.</p>
+          <h4>The idea</h4>
+          <p>Start where the light does. South Africa has some of the highest UV levels in the world, so the brand leads with the lens and explains every one in plain words.</p>
+        </div>
+        <div class="built">
+          <h4>What I built</h4>
+          <ul>
+            <li><b>Identity</b><span>Name treatment, editorial serif typography and a photo direction built around coastal roads and hard sun.</span></li>
+            <li><b>Lens simulator</b><span>Tap Polarised, UV400, Photochromic or Blue-light and see what each lens changes on the same coastal photo.</span></li>
+            <li><b>Pair finder</b><span>Two questions (where you'll wear them, your budget) and the store shows the frames that fit.</span></li>
+            <li><b>Shop by use</b><span>Collections organised by sun, screen and everyday instead of by logo, with reviews and options on every card.</span></li>
+            <li><b>Offers built in</b><span>Buy 2 save 10% and free delivery over R1 000, applied automatically at checkout and announced in the top bar.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="with-phone">
+        <div class="strip">
+          <figure><img src="/portfolio/img/ely_c_lens.jpg" alt="See the difference: interactive lens technology section" data-cap="Lens technology · tap a lens to see what it changes" loading="lazy"><figcaption>See the difference · lens simulator</figcaption></figure>
+          <figure><img src="/portfolio/img/ely_c_first.jpg" alt="The lens comes first: three-point brand approach" data-cap="The Elyven approach · the lens comes first" loading="lazy"><figcaption>The lens comes first</figcaption></figure>
+          <figure><img src="/portfolio/img/ely_c_story.jpg" alt="Our story: A South African brand, for the light here" data-cap="Our story · a South African brand" loading="lazy"><figcaption>Brand story</figcaption></figure>
+          <figure><img src="/portfolio/img/ely_c_shop.jpg" alt="All pairs product carousel with ratings" data-cap="Collections · all pairs" loading="lazy"><figcaption>Product carousel</figcaption></figure>
+        </div>
+        <figure><div class="phone"><img src="/portfolio/img/ely_m.jpg" alt="Elyven homepage on a phone" data-cap="Elyven on a phone" loading="lazy"></div><figcaption>On a phone</figcaption></figure>
+      </div>
+
+      <div class="case-foot">
+        <a class="btn btn-ghost" href="https://elyven.co.za" target="_blank" rel="noopener">Visit the store ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE 04 -->
+  <section class="case" id="case-ves">
+    <div class="wrap">
+      <div class="case-top">
+        <div>
+          <p class="eyebrow">Case 04 · Vessara</p>
+          <h3 class="display">Hair care, sold as a routine.</h3>
+          <div class="case-meta"><span class="tag">Shopify custom theme</span><span class="tag">Brand look</span><span class="tag">Routine builder</span><span class="tag">Launch ads</span></div>
+        </div>
+        <p class="lede">A South African hair care store with 21 products. Instead of a wall of bottles, the whole shop is arranged as four steps: Prepare, Style, Finish, Maintain.</p>
+      </div>
+
+      <div class="win big"><div class="chrome"><i></i><i></i><i></i><span>vessara.co.za · new theme</span></div><img src="/portfolio/img/ves.jpg" alt="Vessara hero: three sunset photos behind the Vessara wordmark, Hair care redefined" data-cap="Hero · Hair care redefined"></div>
+
+      <div class="case-body">
+        <div class="brief">
+          <h4>The brief</h4>
+          <p>The store was live on Shopify's default theme. It worked, but it looked like every other new store, and nothing told a shopper which products belong together.</p>
+          <h4>The idea</h4>
+          <p>People don't buy hair care one bottle at a time, they follow a routine. So the store teaches the routine first and lets the shopper buy the whole thing in one tap.</p>
+        </div>
+        <div class="built">
+          <h4>What I built</h4>
+          <ul>
+            <li><b>Four-step shop</b><span>Every product lives in one step, each with its own chapter, photo and short guide to what it does.</span></li>
+            <li><b>Routine builder</b><span>Pick one product per step, see the running total, then add the whole routine to the bag or go straight to checkout.</span></li>
+            <li><b>Brand look</b><span>Sunset photography, an elegant serif with a clean sans, and a sand, mocha and gold palette that feels premium.</span></li>
+            <li><b>The journal</b><span>A guide for each step of the routine, so the store has a reason for people to come back.</span></li>
+            <li><b>Ads to match</b><span>Launch ads for the rosemary scalp oil and the heat protection spray, shown in the ads section below.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="with-phone">
+        <div class="strip">
+          <figure><img src="/portfolio/img/ves_c_routine.jpg" alt="The Vessara routine builder with four columns of products" data-cap="The Vessara routine · one product per step, one checkout" loading="lazy"><figcaption>Routine builder</figcaption></figure>
+          <figure><img src="/portfolio/img/ves_c_style.jpg" alt="Step 2 of 4, Style: Create the look, define the shape" data-cap="Step 2 · Style" loading="lazy"><figcaption>Step 2 · Style</figcaption></figure>
+          <figure><img src="/portfolio/img/ves_c_journal.jpg" alt="The journal: hair care guides for each step" data-cap="The journal · guides for every step" loading="lazy"><figcaption>The journal</figcaption></figure>
+          <figure><img src="/portfolio/img/ad_oil_1.jpg" alt="Vessara rosemary scalp oil ad" data-cap="Vessara · rosemary scalp oil ad" loading="lazy" style="aspect-ratio:16/10;object-position:center"><figcaption>Launch ad · rosemary oil</figcaption></figure>
+        </div>
+        <figure><div class="phone"><img src="/portfolio/img/ves_m.jpg" alt="Vessara homepage on a phone" data-cap="Vessara on a phone" loading="lazy"></div><figcaption>On a phone</figcaption></figure>
+      </div>
+
+      <div class="case-foot">
+        <a class="btn btn-ghost" href="https://vessara.co.za" target="_blank" rel="noopener">Visit the store ↗</a>
+        <span class="note">The store is live. This custom theme is designed and ready to switch on.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCEPTS -->
+  <section class="concepts" id="concepts">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Concepts · not launched</p>
+          <h2 class="display" style="margin-top:14px">Websites these businesses could have.</h2>
+        </div>
+        <p class="lede">I designed these for real local businesses in Gqeberha. Each one is a finished, working website, built around how that business actually gets customers. None of them are live yet. If you run a driving school or a trade, this is the level your site starts at.</p>
+      </div>
+
+      <div class="cfeat">
+        <div class="win big"><div class="chrome"><i></i><i></i><i></i><span>The Elite Driving School · concept</span></div><img src="/portfolio/img/con_elite.jpg" alt="Elite Driving School concept: Your journey starts here, Code 08 and Code 10 lessons in Summerstrand" data-cap="The Elite Driving School · concept homepage" loading="lazy"></div>
+        <figure><div class="phone"><img src="/portfolio/img/con_elite_m.jpg" alt="Elite Driving School concept on a phone" data-cap="The Elite Driving School · on a phone" loading="lazy"></div><figcaption>On a phone</figcaption></figure>
+      </div>
+      <div class="cinfo">
+        <div>
+          <span class="badge">Concept · not launched</span>
+          <h3 class="ctitle">The Elite Driving School</h3>
+          <p class="carea">Code 08 &amp; Code 10 lessons · Summerstrand, Gqeberha</p>
+        </div>
+        <ul class="cpts">
+          <li><b>"Pay less. Drive more."</b> A cinematic sunset-drive hero that sells the feeling of the first solo drive, not just the lessons.</li>
+          <li><b>Learner to driver.</b> A five-stage path (Learn, Practise, Prepare, Test, Drive) so a nervous learner knows exactly what happens next.</li>
+          <li><b>What are you going for?</b> Visitors choose Code 08 or Code 10 and see what that licence involves, then book.</li>
+          <li><b>Ready to book.</b> Meet the car, why Elite, a "before you book" FAQ and a map, all leading to one booking button.</li>
+        </ul>
+      </div>
+
+      <div class="trade">
+        <h3 class="display">Four plumbers.<br>Four different looks.</h3>
+        <p class="carea">Same trade, same city. Each site is designed around how that business wins work.</p>
+      </div>
+      <div class="cgrid">
+        <article class="ccard">
+          <div class="win"><div class="chrome"><i></i><i></i><i></i><span>Lloyd's Plumbers · concept</span></div><img src="/portfolio/img/con_lloyds.jpg" alt="Lloyd's Plumbers concept: 24-hour plumbers in Gqeberha with the phone number as the headline" data-cap="Lloyd's Plumbers · concept homepage" loading="lazy"></div>
+          <span class="badge" style="margin-top:16px">Concept · not launched</span>
+          <h4 class="ctitle">Lloyd's Plumbers</h4>
+          <p class="carea">24-hour plumbing · Newton Park</p>
+          <ul class="cpts">
+            <li><b>The number is the hero.</b> At 2am with a burst pipe, nobody reads. The phone number is the biggest thing on the page and calls in one tap.</li>
+            <li><b>Call-back request,</b> WhatsApp, six service pages, the real team photo, reviews, a work gallery and an FAQ.</li>
+          </ul>
+        </article>
+        <article class="ccard">
+          <div class="win"><div class="chrome"><i></i><i></i><i></i><span>Eastern Cape Plumbers · concept</span></div><img src="/portfolio/img/con_ecp.jpg" alt="Eastern Cape Plumbers concept: Keeping your water flowing" data-cap="Eastern Cape Plumbers · concept homepage" loading="lazy"></div>
+          <span class="badge" style="margin-top:16px">Concept · not launched</span>
+          <h4 class="ctitle">Eastern Cape Plumbers</h4>
+          <p class="carea">24-hour plumbing · Gqeberha</p>
+          <ul class="cpts">
+            <li><b>"What's the problem?"</b> Visitors tap their problem (leak, geyser, drain) and get pointed to the right fix and the right call.</li>
+            <li><b>Bold and technical:</b> a 24-hour dial, a services accordion, a reviews carousel and a short three-step process.</li>
+          </ul>
+        </article>
+        <article class="ccard">
+          <div class="win"><div class="chrome"><i></i><i></i><i></i><span>GG-Plumbers · concept</span></div><img src="/portfolio/img/con_gg.jpg" alt="GG-Plumbers concept: When the details matter, editorial serif layout" data-cap="GG-Plumbers · concept homepage" loading="lazy"></div>
+          <span class="badge" style="margin-top:16px">Concept · not launched</span>
+          <h4 class="ctitle">GG-Plumbers</h4>
+          <p class="carea">24-hour plumbing · Gqeberha</p>
+          <ul class="cpts">
+            <li><b>"When the details matter."</b> An editorial, magazine-style look that positions the business for premium homes and renovations.</li>
+            <li><b>Before &amp; after work,</b> a "something not right?" quick help section, reviews and a write-it-down enquiry form.</li>
+          </ul>
+        </article>
+        <article class="ccard">
+          <div class="win"><div class="chrome"><i></i><i></i><i></i><span>Lagerdien &amp; Co. Plumbing · concept</span></div><img src="/portfolio/img/con_lagerdien.jpg" alt="Lagerdien and Co. Plumbing concept: Reliable plumbing, quality workmanship" data-cap="Lagerdien & Co. Plumbing · concept homepage" loading="lazy"></div>
+          <span class="badge" style="margin-top:16px">Concept · not launched</span>
+          <h4 class="ctitle">Lagerdien &amp; Co. Plumbing</h4>
+          <p class="carea">Plumbing &amp; installations · Gqeberha</p>
+          <ul class="cpts">
+            <li><b>Trust first.</b> Their Google rating and opening hours sit in the top bar, so the first thing a visitor sees is proof.</li>
+            <li><b>Quote-ready:</b> six values, a work gallery, a three-step "first call to finished job", six FAQs and a quote request.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="cnote">Concepts are unlaunched designs made to show what these businesses could have. Business names and contact details belong to the businesses. No results are claimed for them.</p>
+    </div>
+  </section>
+
+  <!-- CREATIVE -->
+  <section class="creative" id="creative">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Beyond the build</p>
+          <h2 class="display" style="margin-top:14px">The launch ads come with it.</h2>
+        </div>
+        <p class="lede">A website with no visitors is a brochure in a drawer. For each brand I also design the ads that bring people in: feed posts, stories, offer cards and short vertical videos for Facebook, Instagram and TikTok, written to match the site they point to.</p>
+      </div>
+      <div class="ads">
+        <figure><img src="/portfolio/img/ad_w4u_ba.jpg" alt="Web Designs4U before and after ad" data-cap="Web Designs4U · before / after ad" loading="lazy"><figcaption>Web Designs4U</figcaption></figure>
+        <figure><img src="/portfolio/img/ad_nex_1.jpg" alt="Nexcharge awareness ad: Power that holds on" data-cap="Nexcharge · awareness ad" loading="lazy"><figcaption>Nexcharge</figcaption></figure>
+        <figure><img src="/portfolio/img/ad_oil_1.jpg" alt="Vessara rosemary scalp oil ad" data-cap="Vessara · rosemary scalp oil ad" loading="lazy"><figcaption>Vessara · oil</figcaption></figure>
+        <figure><img src="/portfolio/img/ad_spray_1.jpg" alt="Vessara heat protection spray ad" data-cap="Vessara · heat protection spray ad" loading="lazy"><figcaption>Vessara · spray</figcaption></figure>
+        <figure><img src="/portfolio/img/ad_nex_3.jpg" alt="Nexcharge offer ad" data-cap="Nexcharge · offer ad" loading="lazy"><figcaption>Nexcharge · offer</figcaption></figure>
+        <figure><img src="/portfolio/img/ad_w4u_1.jpg" alt="Web Designs4U awareness ad" data-cap="Web Designs4U · awareness ad" loading="lazy"><figcaption>Web Designs4U</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sec" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">What I can build for you</p>
+        <h2 class="display">Pick the job.<br>I'll build the tool.</h2>
+      </div>
+      <div class="services">
+        <div class="svc"><h3>Business websites</h3><p>For salons, builders, driving schools, restaurants and every trade that gets found on Google and booked on WhatsApp.</p><span class="proof">See: Web Designs4U, Elite Driving School, the plumbing concepts</span></div>
+        <div class="svc"><h3>Online stores</h3><p>Shopify stores with a custom design, product pages that answer every question, bundles, discounts and card payments.</p><span class="proof">See: Nexcharge, Elyven, Vessara</span></div>
+        <div class="svc"><h3>One-product pages</h3><p>A single page that tells the story of one product or service and ends at the checkout or the booking form.</p><span class="proof">See: Nexcharge</span></div>
+        <div class="svc"><h3>Booking and enquiries</h3><p>Forms that guide people step by step, then land in your inbox or WhatsApp with everything you need to quote.</p><span class="proof">See: Web Designs4U brief form, Lloyd's call-back</span></div>
+        <div class="svc"><h3>Brand look</h3><p>A name treatment, type and photo direction so the site, the ads and the packaging all feel like one business.</p><span class="proof">See: Elyven, Vessara</span></div>
+        <div class="svc"><h3>Launch ads</h3><p>Ready-to-post images and short videos for Facebook, Instagram, TikTok and WhatsApp, made to match your new site.</p><span class="proof">See: launch ads above</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="sec" id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">How we work</p>
+        <h2 class="display">From chat to live site.</h2>
+      </div>
+      <ol class="steps">
+        <li><b>Talk</b><span>A WhatsApp chat about your business, your customers and what the site must do.</span></li>
+        <li><b>Plan</b><span>I decide what each page has to achieve and what your visitor needs to see first.</span></li>
+        <li><b>Design</b><span>You see the look on your own phone before anything is built.</span></li>
+        <li><b>Build</b><span>I code it, write the words, connect WhatsApp, forms, payments and analytics.</span></li>
+        <li><b>Launch</b><span>Your site goes live on your domain, with launch ads ready to post if you want them.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Your turn</p>
+      <h2 class="display" style="margin-top:16px">Your business could be <em>case 05.</em></h2>
+      <div class="contact-grid">
+        <div>
+          <p class="lede">Tell me what you do and who your customers are. I'll reply with how I'd build your website and what it would take. No forms, no sales team, just me.</p>
+          <div class="btns">
+            <a class="btn btn-wa" href="https://wa.me/27798347243?text=Hi%20Xolani%2C%20I%20saw%20your%20portfolio.%20I%27d%20like%20a%20website%20for%20my%20business." target="_blank" rel="noopener">WhatsApp me now</a>
+            <a class="btn btn-ghost" href="https://webdesigns4u.co.za" target="_blank" rel="noopener">Start a brief on my site ↗</a>
+          </div>
+        </div>
+        <div class="lines">
+          <div class="line"><span class="lab">WhatsApp</span><span class="val">079 834 7243</span><button class="copy" type="button" data-copy="0798347243">Copy</button></div>
+          <div class="line"><span class="lab">Call</span><span class="val">+27 79 834 7243</span><button class="copy" type="button" data-copy="+27798347243">Copy</button></div>
+          <div class="line"><span class="lab">Email</span><span class="val">webdesigns4u.co.za@gmail.com</span><button class="copy" type="button" data-copy="webdesigns4u.co.za@gmail.com">Copy</button></div>
+          <div class="line"><span class="lab">Based in</span><span class="val">Gqeberha · working across SA</span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Xolani · Web Designs4U</span>
+    <span>Screens captured October 2026. Concepts are unlaunched designs.</span>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb">
+  <button type="button" id="lbClose">Close ✕</button>
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+</dialog>
+
+<script>
+(function () {
+  // Gqeberha clock (SAST, UTC+2)
+  var clk = document.getElementById('clk');
+  function tick() {
+    try {
+      clk.textContent = new Intl.DateTimeFormat('en-ZA', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Africa/Johannesburg' }).format(new Date());
+    } catch (e) {
+      var d = new Date(Date.now() + 2 * 3600e3);
+      clk.textContent = String(d.getUTCHours()).padStart(2, '0') + ':' + String(d.getUTCMinutes()).padStart(2, '0');
+    }
+  }
+  tick(); setInterval(tick, 15000);
+
+  // Lightbox
+  var lb = document.getElementById('lb'), li = document.getElementById('lbImg'), lc = document.getElementById('lbCap');
+  document.querySelectorAll('img[data-cap]').forEach(function (img) {
+    img.tabIndex = 0;
+    function open() {
+      li.src = img.currentSrc || img.src; li.alt = img.alt; lc.textContent = img.dataset.cap;
+      if (lb.showModal) lb.showModal(); else lb.setAttribute('open', '');
+    }
+    img.addEventListener('click', open);
+    img.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+  });
+  function close() { if (lb.close) lb.close(); else lb.removeAttribute('open'); }
+  document.getElementById('lbClose').addEventListener('click', close);
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+
+  // Copy buttons
+  document.querySelectorAll('.copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var t = b.dataset.copy, label = b.textContent;
+      function done() { b.textContent = 'Copied'; b.classList.add('ok'); setTimeout(function () { b.textContent = label; b.classList.remove('ok'); }, 1600); }
+      function fallback() {
+        var v = b.parentNode.querySelector('.val'); var r = document.createRange(); r.selectNodeContents(v);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected';
+        setTimeout(function () { b.textContent = label; }, 1600);
+      }
+      try { navigator.clipboard.writeText(t).then(done, fallback); } catch (e) { fallback(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
